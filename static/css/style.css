@@ -4,8 +4,14 @@
     --tertiary-color: #AB373A;
     --text-color: #383031;
     --text-color-neutral: #FFFFFF;
+    --text-color-section2: #3C59A2;
+    --background-color-card-section2: #2F457E;
     --realce-color: #EBC840;
-    --background-color: #3C6D9A;
+    --background-color-section1: #3C6D9A;
+    --background-color-section2: #F4F4F4;
+    --background-color-section3: #383031;
+    --background-color-section4: #DC3D2D;
+    --background-color-section5: #C0373B;
     --background-color-2: #B9DDE4;
     --background-color-menu: #F4F4F4;
     --background-color-neutral: #FFFFFF;
@@ -290,6 +296,12 @@ p {
     .swiper-slide p {
         font-size: 0.9rem;
     }
+
+    .modern-container-section1 {
+        padding: 1.5rem 1rem;
+        width: 100%;
+        height: auto;
+    }
 }
 
 @media (max-width: 480px) {
@@ -361,4 +373,158 @@ p {
         height: 280px;
         padding: 1rem;
     }
+}
+
+.modern-container-section1 {
+    background: var(--background-color-section1);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 3rem 2.5rem;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 90%;
+    justify-content: center;
+}
+
+/* Centraliza o .content dentro do .modern-container-section1 */
+.modern-container-section1 .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+.modern-container-section2 {
+    background: var(--background-color-section2);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 3rem 2.5rem;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 90%;
+    justify-content: center;
+}
+
+.modern-container-section3 {
+    background: var(--background-color-section3);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 3rem 2.5rem;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 90%;
+    justify-content: center;
+}
+
+.modern-container-section4 {
+    background: var(--background-color-section4);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 3rem 2.5rem;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 90%;
+    justify-content: center;
+}
+
+.modern-container-section5 {
+    background: var(--background-color-section5);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 3rem 2.5rem;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 90%;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .modern-container-section2,
+    .modern-container-section3,
+    .modern-container-section4,
+    .modern-container-section5 {
+        padding: 1.5rem 1rem;
+        width: 100%;
+        height: auto;
+    }
+}
+
+.modern-container-section2 .content,
+.modern-container-section2 .content h1,
+.modern-container-section2 .content h2,
+.modern-container-section2 .content p,
+.modern-container-section2 .content a {
+    color: var(--text-color-section2);
+}
+
+.modern-container-section2 .swiper-slide {
+    background-color: var(--background-color-card-section2);
+    color: var(--text-color-neutral);
+}
+
+.modern-container-section2 .swiper-slide img {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 1rem;
+    object-fit: cover;
+    border-radius: 50%;
+    background: var(--background-color-neutral);
+    padding: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.modern-container-section2 .swiper-slide p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-color-neutral);
+}
+
+.modern-container-section2 .swiper-button-next,
+.modern-container-section2 .swiper-button-prev {
+    background-color: var(--background-color-card-section2);
+    color: var(--text-color-neutral) !important;
+}
+
+.modern-container-section2 .swiper-pagination-bullet {
+    background: var(--background-color-card-section2) !important;
+}
+
+.modern-container-section3 .content,
+.modern-container-section4 .content,
+.modern-container-section5 .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    text-align: center;
 } 
