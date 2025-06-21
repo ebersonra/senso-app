@@ -12,6 +12,8 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
+      deployments: write
+      statuses: write
     
     steps:
     - name: Checkout repository
