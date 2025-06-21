@@ -1,6 +1,6 @@
 {
   "name": "senso-app",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Site da clínica psicologia Senso",
   "main": "index.html",
   "scripts": {
@@ -21,4 +21,4 @@
   ],
   "author": "Senso Psicologia",
   "license": "MIT"
-} 
+}
