@@ -1,217 +1,97 @@
 # Psicologia Senso - Website
 
-Site moderno e responsivo para a clínica de psicologia Senso, desenvolvido com HTML5, CSS3 e JavaScript.
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c8488858-5fe4-4495-ac74-c70dced9df44/deploy-status)](https://app.netlify.com/projects/psicologiasenso/deploys)
+
+Site moderno, responsivo e otimizado para a clínica de psicologia Senso, desenvolvido com HTML5, CSS3, JavaScript e um fluxo de CI/CD automatizado com GitHub Actions para deploy na Netlify.
 
 ## 🎯 Sobre o Projeto
 
-Este projeto é um website institucional para a clínica de psicologia Senso, apresentando informações sobre tratamentos, serviços e equipe de profissionais. O site foi desenvolvido com foco em design moderno, responsividade e experiência do usuário.
+Este projeto é um website institucional para a clínica de psicologia Senso. O foco foi criar uma experiência de usuário fluida e profissional, com design moderno, performance otimizada e um backend de deploy robusto e automatizado.
 
-## ✨ Características
+## ✨ Características Principais
 
-- **Design Moderno**: Interface limpa e profissional
-- **Totalmente Responsivo**: Adaptado para todos os dispositivos
-- **Logo em Destaque**: Section0 com logo de 800px no desktop
-- **Carrossel Interativo**: Apresentação dinâmica dos tratamentos
-- **Navegação Suave**: Transições fluidas entre seções
-- **Performance Otimizada**: Imagens comprimidas e código otimizado
-- **Favicon Completo**: Baseado na logo da clínica
-- **PWA Ready**: Suporte para Progressive Web App
+- **Design Moderno e Coeso**: Interface limpa com containers de vidro e paleta de cores consistente.
+- **Totalmente Responsivo**: Adaptado para todos os dispositivos, de desktops a celulares.
+- **Carrossel Interativo e Automático**: Apresentação dinâmica dos tratamentos com ícones, autoplay e loop infinito.
+- **Performance Otimizada**: Minificação automática de CSS e JavaScript durante o deploy.
+- **CI/CD com GitHub Actions**: Build e deploy automatizados na Netlify a cada push na branch `main`.
+- **Favicon Completo e PWA Ready**: Suporte completo para ícones e Progressive Web App.
 
 ## 🛠️ Tecnologias Utilizadas
 
-- **HTML5**: Estrutura semântica e acessível
-- **CSS3**: Estilos modernos com Flexbox e Grid
-- **JavaScript**: Interatividade e funcionalidades dinâmicas
-- **Swiper.js**: Biblioteca para carrossel responsivo
-- **Glassmorphism**: Efeito visual moderno nos cards
-- **PIL (Python)**: Geração de favicons em múltiplos tamanhos
+- **HTML5**: Estrutura semântica e acessível.
+- **CSS3**: Estilos modernos com Flexbox, Grid e Variáveis CSS para theming.
+- **JavaScript (ES6+)**: Interatividade e funcionalidades dinâmicas.
+- **Swiper.js**: Biblioteca para o carrossel responsivo.
+- **Node.js/npm**: Gerenciamento de dependências de desenvolvimento.
+- **Terser**: Ferramenta para minificar e ofuscar JavaScript.
+- **clean-css-cli**: Ferramenta para minificar CSS.
+- **GitHub Actions**: Automação de CI/CD para build e deploy.
+- **Netlify**: Hospedagem e plataforma de deploy.
 
 ## 📁 Estrutura do Projeto
 
 ```
 senso-app/
+├── .github/workflows/      # Workflows do GitHub Actions
+│   └── build-and-deploy.yml
 ├── index.html              # Página principal
-├── manifest.json           # Manifest para PWA
 ├── static/
-│   ├── css/
-│   │   └── style.css       # Estilos CSS
-│   └── js/
-│       └── main.js         # JavaScript do carrossel
-├── img/
-│   ├── bg/
-│   │   ├── part_0.jpg      # Imagem de fundo seção 0
-│   │   ├── part_1.jpg      # Imagem de fundo seção 1
-│   │   ├── part_2.jpg      # Imagem de fundo seção 2
-│   │   ├── part_3.jpg      # Imagem de fundo seção 3
-│   │   ├── part_4.jpg      # Imagem de fundo seção 4
-│   │   └── part_5.jpg      # Imagem de fundo seção 5
-│   ├── logo/
-│   │   └── logo_senso_nova.png  # Logo da clínica
-│   └── favicon/
-│       ├── favicon.ico     # Favicon principal
-│       ├── favicon-16x16.png
-│       ├── favicon-32x32.png
-│       ├── favicon-48x48.png
-│       ├── favicon-64x64.png
-│       ├── favicon-128x128.png
-│       ├── apple-touch-icon.png
-│       ├── android-chrome-192x192.png
-│       └── android-chrome-512x512.png
-└── README.md               # Documentação do projeto
+│   ├── css/style.css       # Estilos CSS (desenvolvimento)
+│   └── js/main.js          # JavaScript (desenvolvimento)
+├── img/                    # Imagens (backgrounds, logo, ícones)
+├── package.json            # Dependências e scripts de build
+├── netlify.toml            # Configuração de deploy da Netlify
+└── README.md               # Documentação
 ```
 
-## 🎨 Seções do Site
+## 🚀 Como Executar Localmente
 
-### 0. Logo e Apresentação (Section0)
-- **Logo centralizada**: 800px no desktop, responsiva
-- **Tagline**: "Cuidando da sua saúde mental com excelência e humanidade"
-- **Indicador de scroll**: Animação de bounce
-- **Animações**: fadeInUp para logo e tagline
+1.  **Clone o repositório**:
+    ```bash
+    git clone [url-do-repositorio]
+    cd senso-app
+    ```
 
-### 1. Sobre Nós
-- Apresentação da clínica
-- Filosofia de trabalho
-- Valores e missão
+2.  **Instale as dependências de desenvolvimento**:
+    ```bash
+    npm install
+    ```
 
-### 2. Tratamentos (Carrossel)
-- **10 cards interativos** com efeito glassmorphism
-- Ansiedade e estresse
-- Depressão e luto
-- Transtornos de personalidade
-- Conflitos familiares
-- Autoestima e bullying
-- Compulsões alimentares
-- Dificuldades acadêmicas
-- Controle emocional
-- Influência digital
-- Identidade de gênero
+3.  **Inicie o servidor de desenvolvimento**:
+    ```bash
+    npm run dev
+    # O site estará disponível em http://localhost:8000
+    ```
 
-### 3. Serviços
-- Acolhimento e suporte
-- Psicoterapia online e presencial
-- Atendimento personalizado
+## ⚙️ Build e Deploy (CI/CD)
 
-### 4. Equipe
-- **Heloisa do Vale** - CRP: 08/40879
-- **Rafael Stoco Pereira** - CRP: 08/42222
-- **André Borges O. Santos** - CRP: 08/40954
+O projeto está configurado com um fluxo de **Integração e Deploy Contínuo (CI/CD)** usando GitHub Actions.
 
-### 5. Agendamento
-- Chamada para ação
-- Informações de contato
+-   **Gatilho**: O workflow é acionado a cada `push` na branch `main`.
+-   **Processo**:
+    1.  O código é verificado.
+    2.  As dependências são instaladas.
+    3.  O CSS é minificado para `style.min.css`.
+    4.  O JavaScript é minificado e ofuscado para `main.min.js`.
+    5.  Uma pasta `dist` é criada com todos os arquivos prontos para produção.
+    6.  O `index.html` na pasta `dist` é atualizado para usar os arquivos `.min`.
+    7.  A pasta `dist` é enviada para a Netlify.
 
-## 🚀 Como Executar
-
-1. **Clone o repositório**:
-   ```bash
-   git clone [url-do-repositorio]
-   cd senso-app
-   ```
-
-2. **Abra o arquivo index.html**:
-   - Duplo clique no arquivo `index.html`
-   - Ou use um servidor local:
-   ```bash
-   python3 -m http.server 8000
-   # Acesse: http://localhost:8000
-   ```
-
-## 📱 Responsividade
-
-O site é totalmente responsivo e se adapta aos seguintes breakpoints:
-
-### **Desktop (1200px+)**
-- Logo: 800px
-- Tagline: 2rem
-- Carrossel: 3 slides visíveis
-
-### **Laptop (1024px)**
-- Logo: 600px
-- Tagline: 1.8rem
-
-### **Tablet (768px)**
-- Logo: 400px
-- Tagline: 1.4rem
-- Carrossel: 2 slides visíveis
-
-### **Mobile (480px)**
-- Logo: 280px
-- Tagline: 1.1rem
-- Carrossel: 1 slide visível
-
-### **Mobile Pequeno (360px)**
-- Logo: 220px
-- Tagline: 1rem
-
-## 🎯 Funcionalidades
-
-### Carrossel de Tratamentos
-- Efeito coverflow 3D
-- Navegação por botões e paginação
-- Autoplay responsivo
-- Touch/swipe em dispositivos móveis
-- Cards com efeito glassmorphism
-
-### Navegação
-- Links internos suaves
-- Botões de call-to-action
-- Navegação por teclado
-- Indicador de scroll animado
-
-### Performance
-- Imagens otimizadas (< 800KB cada)
-- CSS e JS minificados
-- Carregamento assíncrono
-- Favicons em múltiplos formatos
-
-### PWA (Progressive Web App)
-- Manifest.json configurado
-- Ícones para diferentes dispositivos
-- Suporte para instalação como app
-- Theme color personalizada
-
-## 🖼️ Favicon
-
-Sistema completo de favicon baseado na logo da clínica:
-
-- **Favicon.ico**: Formato tradicional
-- **PNG múltiplos tamanhos**: 16x16 até 128x128
-- **Apple Touch Icon**: 180x180 para iOS
-- **Android Chrome**: 192x192 e 512x512
-- **Compatibilidade total**: Todos os navegadores e dispositivos
+Este processo garante que apenas código otimizado seja publicado, melhorando a performance do site sem trabalho manual.
 
 ## 🔧 Personalização
 
-### Cores e Estilos
-Edite o arquivo `static/css/style.css` para personalizar:
-- Cores do tema
-- Tipografia
-- Espaçamentos
-- Efeitos visuais
-- Tamanhos responsivos
+### Conteúdo e Estilos
+-   **Conteúdo HTML**: Edite `index.html`.
+-   **Estilos CSS**: Edite `static/css/style.css`.
+-   **Lógica JavaScript**: Edite `static/js/main.js`.
 
-### Conteúdo
-Modifique o arquivo `index.html` para atualizar:
-- Textos e informações
-- Imagens de fundo
-- Links e contatos
-- Seções e estrutura
+Após qualquer alteração, basta fazer o `commit` e `push` para a branch `main`, e o GitHub Actions cuidará do resto.
 
-### Funcionalidades
-Ajuste o arquivo `static/js/main.js` para:
-- Configurar o carrossel
-- Adicionar animações
-- Implementar novas funcionalidades
-
-### Favicon
-Para gerar novos favicons:
-```bash
-# Instalar Pillow
-pip3 install Pillow
-
-# Executar script de geração
-python3 generate_favicon.py
-```
+### Configuração de Build
+-   **Comandos de Minificação**: Podem ser ajustados no `package.json`.
+-   **Workflow do CI/CD**: A lógica do build pode ser modificada em `.github/workflows/build-and-deploy.yml`.
 
 ## 📞 Contato
 

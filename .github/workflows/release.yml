@@ -1,0 +1,62 @@
+name: Create Release and Bump Version
+
+on:
+  workflow_dispatch:
+    inputs:
+      version_type:
+        description: 'The type of version bump (major, minor, or patch)'
+        required: true
+        type: choice
+        options:
+        - patch
+        - minor
+        - major
+        default: 'patch'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        # Fetch all history so we can create a release with a changelog
+        fetch-depth: 0
+        # Use a personal access token so the push will trigger the deploy workflow
+        token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: Configure Git
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Bump version
+      id: bump_version
+      run: |
+        # Bump version and create tag
+        new_version=$(npm version ${{ github.event.inputs.version_type }} -m "chore(release): new release %s")
+        echo "new_version=${new_version}" >> $GITHUB_OUTPUT
+
+    - name: Push changes and tags
+      run: git push --follow-tags
+
+    - name: Create GitHub Release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ steps.bump_version.outputs.new_version }}
+        release_name: 'Release ${{ steps.bump_version.outputs.new_version }}'
+        body: |
+          A new release has been created. See the commits for details.
+        draft: false
+        prerelease: false 
