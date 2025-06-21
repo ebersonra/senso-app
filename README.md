@@ -96,7 +96,7 @@ Após qualquer alteração, basta fazer o `commit` e `push` para a branch `main`
 ## 📞 Contato
 
 Para mais informações sobre a clínica Senso:
-- **Website**: [psicologiasenso.com.br](https://psicologiasenso.com.br/) (substitua pelo link do deploy)
+- **Website**: [psicologiasenso.com.br](https://psicologiasenso.com.br/)
 - **Localização**: [Endereço da clínica]
 - **Telefone**: [Número de contato]
 
