@@ -54,13 +54,9 @@ jobs:
       run: git push --follow-tags
 
     - name: Create GitHub Release
-      uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: ${{ steps.bump_version.outputs.new_version }}
-        release_name: 'Release ${{ steps.bump_version.outputs.new_version }}'
-        body: |
-          A new release has been created. See the commits for details.
-        draft: false
-        prerelease: false 
+      run: |
+        gh release create ${{ steps.bump_version.outputs.new_version }} \
+          --title "Release ${{ steps.bump_version.outputs.new_version }}" \
+          --notes "A new release has been created. See the commits for details." 
