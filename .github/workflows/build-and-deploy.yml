@@ -1,0 +1,59 @@
+name: Build and Deploy to Netlify
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Install dependencies
+      run: |
+        npm install -g clean-css-cli
+        npm install -g terser
+        
+    - name: Minify CSS
+      run: |
+        cleancss -o static/css/style.min.css static/css/style.css
+        
+    - name: Minify JavaScript
+      run: |
+        terser static/js/main.js -o static/js/main.min.js --compress --mangle
+        
+    - name: Create build directory
+      run: |
+        mkdir -p dist
+        cp -r static dist/
+        cp -r img dist/
+        cp index.html dist/
+        cp manifest.json dist/
+        cp netlify.toml dist/
+        
+    - name: Update HTML to use minified files
+      run: |
+        sed -i 's/style\.css/style.min.css/g' dist/index.html
+        sed -i 's/main\.js/main.min.js/g' dist/index.html
+        
+    - name: Deploy to Netlify
+      uses: nwtgck/actions-netlify@v3.0
+      with:
+        publish-dir: './dist'
+        production-branch: main
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        deploy-message: "Deploy from GitHub Actions"
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      timeout-minutes: 1 

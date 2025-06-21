@@ -1,0 +1,24 @@
+{
+  "name": "senso-app",
+  "version": "1.0.0",
+  "description": "Site da clínica psicologia Senso",
+  "main": "index.html",
+  "scripts": {
+    "build": "npm run minify-css && npm run minify-js",
+    "minify-css": "cleancss -o static/css/style.min.css static/css/style.css",
+    "minify-js": "terser static/js/main.js -o static/js/main.min.js --compress --mangle",
+    "dev": "python3 -m http.server 8000"
+  },
+  "devDependencies": {
+    "clean-css-cli": "^5.6.2",
+    "terser": "^5.24.0"
+  },
+  "keywords": [
+    "psicologia",
+    "clinica",
+    "website",
+    "static"
+  ],
+  "author": "Senso Psicologia",
+  "license": "MIT"
+} 

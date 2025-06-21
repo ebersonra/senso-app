@@ -1,6 +1,9 @@
 # Configurações para deploy na Netlify
 
 [build]
-  # Diretório que será publicado. Como todos os nossos arquivos estão na raiz,
-  # definimos como ".", que representa o diretório atual.
-  publish = "."
+  # Diretório que será publicado. 
+  # Quando usando GitHub Actions, o diretório será 'dist'
+  publish = "dist"
+
+# Como é um site estático simples, não há necessidade de um comando de build.
+# A Netlify irá simplesmente pegar os arquivos do diretório "publish" e publicá-los.
