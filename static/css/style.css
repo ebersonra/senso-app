@@ -134,6 +134,30 @@ h2 {
     color: var(--text-color-neutral);
 }
 
+.title-modern {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--text-color-neutral);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.title-modern::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 100px;
+    height: 4px;
+    background-color: var(--realce-color);
+    border-radius: 2px;
+}
+
 p {
     font-size: 1.2rem;
     margin-bottom: 2rem;
@@ -216,28 +240,46 @@ p {
 
 /* Background images for each section */
 /* Section 0 - Logo */
-#section0 {
+.no-webp #section0 {
     background-image: url('../../img/bg/part_0.jpg');
 }
+.webp #section0 {
+    background-image: url('../../img/bg/part_0.webp');
+}
 
-#section1 {
+.no-webp #section1 {
     background-image: url('../../img/bg/part_1.jpg');
 }
+.webp #section1 {
+    background-image: url('../../img/bg/part_1.webp');
+}
 
-#section2 {
+.no-webp #section2 {
     background-image: url('../../img/bg/part_2.jpg');
 }
+.webp #section2 {
+    background-image: url('../../img/bg/part_2.webp');
+}
 
-#section3 {
+.no-webp #section3 {
     background-image: url('../../img/bg/part_3.jpg');
 }
-
-#section4 {
-    background-image: url('../../img/bg/part_4.jpg');
+.webp #section3 {
+    background-image: url('../../img/bg/part_3.webp');
 }
 
-#section5 {
+.no-webp #section4 {
+    background-image: url('../../img/bg/part_4.jpg');
+}
+.webp #section4 {
+    background-image: url('../../img/bg/part_4.webp');
+}
+
+.no-webp #section5 {
     background-image: url('../../img/bg/part_5.jpg');
+}
+.webp #section5 {
+    background-image: url('../../img/bg/part_5.webp');
 }
 
 /* Responsive Design */
@@ -396,10 +438,6 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-    text-align: center;
 }
 
 .modern-container-section2 {
@@ -527,4 +565,18 @@ p {
     height: 100%;
     width: 100%;
     text-align: center;
-} 
+}
+
+@media (max-width: 768px) {
+    .title-modern {
+        font-size: 3rem;
+        letter-spacing: 0.08em;
+    }
+}
+
+@media (max-width: 480px) {
+    .title-modern {
+        font-size: 2.5rem;
+        letter-spacing: 0.06em;
+    }
+}
