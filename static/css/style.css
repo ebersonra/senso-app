@@ -827,3 +827,12 @@ img[loading="lazy"] {
     height: auto;
     display: block;
 }
+
+.icon-card {
+    color: var(--text-color-neutral);
+    fill: currentColor;
+    width: 200px;
+    height: 200px;
+    display: block;
+    margin: 0 auto 1rem auto;
+}
