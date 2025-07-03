@@ -19,8 +19,25 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: 'Creato Display';
+    src: url('/static/fonts/CreatoDisplay-Regular.woff2') format('woff2'),
+         url('/static/fonts/CreatoDisplay-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Creato Display';
+    src: url('/static/fonts/CreatoDisplay-Bold.woff2') format('woff2'),
+         url('/static/fonts/CreatoDisplay-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Creato Display', Arial, sans-serif;
     line-height: 1.6;
     color: var(--text-color-neutral);
 }
