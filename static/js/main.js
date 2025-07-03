@@ -39,3 +39,13 @@ var swiper = new Swiper(".mySwiper", {
         }
     }
 }); 
+
+// Atualiza automaticamente o ano do copyright no footer
+function updateFooterYear() {
+    const yearSpan = document.getElementById('footer-year');
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+}
+
+document.addEventListener('DOMContentLoaded', updateFooterYear); 
