@@ -26,7 +26,7 @@ body {
 }
 
 .section {
-    height: 100vh;
+    min-height: 100svh;
     width: 100%;
     display: flex;
     align-items: center;
@@ -117,21 +117,21 @@ body {
 }
 
 h1 {
-    font-size: 3.5rem;
+    font-size: clamp(2rem, 4vw + 1rem, 3.5rem);
     margin-bottom: 1rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     color: var(--text-color-neutral);
 }
 
 h2 {
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 2vw + 1rem, 2.5rem);
     margin-bottom: 1rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     color: var(--text-color-neutral);
 }
 
 .title-modern {
-    font-size: 4rem;
+    font-size: clamp(2.5rem, 5vw + 1rem, 4rem);
     font-weight: 700;
     color: var(--text-color-neutral);
     text-transform: uppercase;
@@ -301,14 +301,8 @@ p {
     }
 }
 
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2.5rem;
-    }
 
-    h2 {
-        font-size: 2rem;
-    }
+@media (max-width: 768px) {
 
     p {
         font-size: 1rem;
@@ -343,7 +337,7 @@ p {
         font-size: 0.9rem;
     }
 
-    .modern-container-section1 {
+    .modern-container {
         padding: 1.5rem 1rem;
         width: 100%;
         height: auto;
@@ -355,14 +349,8 @@ p {
     }
 }
 
-@media (max-width: 480px) {
-    h1 {
-        font-size: 2rem;
-    }
 
-    h2 {
-        font-size: 1.8rem;
-    }
+@media (max-width: 480px) {
 
     .btn {
         padding: 0.8rem 1.5rem;
@@ -411,14 +399,6 @@ p {
         font-size: 1rem;
     }
 
-    h1 {
-        font-size: 1.8rem;
-    }
-
-    h2 {
-        font-size: 1.6rem;
-    }
-
     .swiper-slide {
         width: 180px;
         height: 280px;
@@ -426,11 +406,7 @@ p {
     }
 }
 
-.modern-container-section1,
-.modern-container-section2,
-.modern-container-section3,
-.modern-container-section4,
-.modern-container-section5 {
+.modern-container {
     background: var(--background-color-section);
     border-radius: 24px;
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
@@ -446,16 +422,8 @@ p {
     justify-content: center;
 }
 
-/* Remover o background individual das seções 2-5 para evitar conflito */
-.modern-container-section2,
-.modern-container-section3,
-.modern-container-section4,
-.modern-container-section5 {
-    background: var(--background-color-section);
-}
-
-/* Centraliza o .content dentro do .modern-container-section1 */
-.modern-container-section1 .content {
+/* Centraliza o .content dentro do container */
+.modern-container .content {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -508,24 +476,11 @@ p {
     text-align: center;
 }
 
-@media (max-width: 768px) {
-    .title-modern {
-        font-size: 3rem;
-        letter-spacing: 0.08em;
-    }
-}
-
-@media (max-width: 480px) {
-    .title-modern {
-        font-size: 2.5rem;
-        letter-spacing: 0.06em;
-    }
-}
 
 /* Cards Section 3 - grid responsivo 3 por linha */
 .cards-section3 {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
     margin: 2rem 0;
     width: 100%;
@@ -618,6 +573,13 @@ p {
     width: 100%;
     height: auto;
     filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
+}
+
+.map-iframe {
+    height: 60vh;
+    max-height: 400px;
+    display: block;
+    margin: 0 auto;
 }
 .footer-center {
     flex: 2 1 300px;
@@ -769,4 +731,11 @@ p {
     border-radius: 18px;
     box-shadow: 0 4px 24px 0 rgba(31, 38, 135, 0.10);
     object-fit: cover;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+    }
 }
