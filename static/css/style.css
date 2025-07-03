@@ -26,7 +26,7 @@ body {
 }
 
 .section {
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     display: flex;
     align-items: center;
@@ -117,14 +117,14 @@ body {
 }
 
 h1 {
-    font-size: 3.5rem;
+    font-size: clamp(2rem, 4vw + 1rem, 4rem);
     margin-bottom: 1rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     color: var(--text-color-neutral);
 }
 
 h2 {
-    font-size: 2.5rem;
+    font-size: clamp(1.5rem, 2.5vw + 1rem, 2.5rem);
     margin-bottom: 1rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     color: var(--text-color-neutral);
@@ -155,7 +155,7 @@ h2 {
 }
 
 p {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 1vw + 0.8rem, 1.3rem);
     margin-bottom: 2rem;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     color: var(--text-color-neutral);
@@ -525,7 +525,7 @@ p {
 /* Cards Section 3 - grid responsivo 3 por linha */
 .cards-section3 {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
     gap: 2rem;
     margin: 2rem 0;
     width: 100%;
@@ -769,4 +769,61 @@ p {
     border-radius: 18px;
     box-shadow: 0 4px 24px 0 rgba(31, 38, 135, 0.10);
     object-fit: cover;
+}
+
+iframe {
+    width: 100% !important;
+    height: 60vh !important;
+    max-height: 400px;
+    min-height: 220px;
+    border: 0;
+    border-radius: 18px;
+    display: block;
+    margin: 0 auto 2rem auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Consolidar containers */
+.modern-container {
+    background: var(--background-color-section);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 3rem 2.5rem;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 90%;
+    justify-content: center;
+}
+
+/* Utilitários */
+.text-center { text-align: center !important; }
+.mb-2 { margin-bottom: 2rem !important; }
+
+/* Grid aprimorado */
+.cards-section3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+    gap: 2rem;
+}
+@media (max-width: 600px) {
+    .cards-section3 { gap: 1rem; }
+}
+
+/* Ajuste para imagens genéricas */
+img[loading="lazy"] {
+    width: 100%;
+    height: auto;
+    display: block;
 }
