@@ -320,11 +320,11 @@ p {
 
 @media (max-width: 768px) {
     h1 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
 
     h2 {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
     p {
@@ -353,7 +353,7 @@ p {
     }
 
     .swiper-slide h3 {
-        font-size: 1.3rem;
+        font-size: 1.1rem;
     }
 
     .swiper-slide p {
@@ -378,7 +378,7 @@ p {
     }
 
     h2 {
-        font-size: 1.8rem;
+        font-size: 1.2rem;
     }
 
     .btn {
@@ -527,14 +527,14 @@ p {
 
 @media (max-width: 768px) {
     .title-modern {
-        font-size: 3rem;
+        font-size: 2.5rem;
         letter-spacing: 0.08em;
     }
 }
 
 @media (max-width: 480px) {
     .title-modern {
-        font-size: 2.5rem;
+        font-size: 2rem;
         letter-spacing: 0.06em;
     }
 }
@@ -595,7 +595,7 @@ p {
         max-width: 100%;
     }
     .card-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
         width: 44px;
         height: 44px;
     }
@@ -702,7 +702,6 @@ p {
 }
 
 .modern-card-equipe h2 {
-    font-size: 2rem;
     margin-bottom: 1rem;
     color: var(--realce-color);
     text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
@@ -836,13 +835,6 @@ iframe {
 }
 @media (max-width: 600px) {
     .cards-section3 { gap: 1rem; }
-}
-
-/* Ajuste para imagens genéricas */
-img[loading="lazy"] {
-    width: 100%;
-    height: auto;
-    display: block;
 }
 
 .icon-card {
