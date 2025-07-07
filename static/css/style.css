@@ -845,3 +845,109 @@ iframe {
     display: block;
     margin: 0 auto 1rem auto;
 }
+
+/* Estilos específicos para h3 da seção 5 */
+#section5 h3 {
+    font-size: clamp(1.2rem, 2.5vw + 0.8rem, 1.8rem);
+    font-weight: 600;
+    color: var(--realce-color);
+    text-align: center;
+    margin: 2rem 0 3rem 0;
+    padding: 1rem 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    border: 2px solid rgba(235, 200, 64, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+#section5 h3::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(235, 200, 64, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+#section5 h3:hover::before {
+    left: 100%;
+}
+
+#section5 h3:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+    border-color: rgba(235, 200, 64, 0.5);
+}
+
+/* Responsividade para h3 da seção 5 */
+@media (max-width: 768px) {
+    #section5 h3 {
+        font-size: clamp(1.1rem, 3vw + 0.6rem, 1.5rem);
+        margin: 1.5rem 0 2.5rem 0;
+        padding: 0.8rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #section5 h3 {
+        font-size: clamp(1rem, 3.5vw + 0.5rem, 1.3rem);
+        margin: 1rem 0 2rem 0;
+        padding: 0.6rem 1rem;
+        border-radius: 12px;
+    }
+}
+
+/* Ajuste do espaçamento do iframe na seção 5 */
+#section5 iframe {
+    margin-top: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+/* Estilos específicos para o iframe do Google Forms */
+#section5 iframe[src*="docs.google.com/forms"] {
+    width: 100% !important;
+    height: 600px !important;
+    max-width: 100%;
+    border: none;
+    border-radius: 18px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: block;
+    margin: 2rem auto;
+    background: rgba(255,255,255,0.95) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+/* Responsividade específica para o Google Forms */
+@media (max-width: 768px) {
+    #section5 iframe[src*="docs.google.com/forms"] {
+        height: 700px !important;
+        margin: 1.5rem auto;
+        border-radius: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    #section5 iframe[src*="docs.google.com/forms"] {
+        height: 800px !important;
+        margin: 1rem auto;
+        border-radius: 10px;
+        width: 95% !important;
+    }
+}
+
+@media (max-width: 360px) {
+    #section5 iframe[src*="docs.google.com/forms"] {
+        height: 850px !important;
+        width: 98% !important;
+    }
+}
