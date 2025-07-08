@@ -140,4 +140,8 @@ dist/
 *.min.css
 *.min.js
 
+# Docs temp for develop
 docs/
+
+# Utils files 
+*.py
