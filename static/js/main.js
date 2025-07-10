@@ -6,7 +6,7 @@ var swiper = new Swiper(".mySwiper", {
     slidesPerView: "auto",
     loop: true,
     autoplay: {
-        delay: 2000,
+        delay: 4000,
         disableOnInteraction: false,
     },
     coverflowEffect: {
