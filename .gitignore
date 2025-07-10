@@ -145,3 +145,4 @@ docs/
 
 # Utils files 
 *.py
+split_images
