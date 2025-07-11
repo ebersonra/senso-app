@@ -1,0 +1,18 @@
+# Redirecionamentos para URLs limpas (sem extensão .html)
+/politica-privacidade.html /politica-privacidade 301
+/termos-uso.html /termos-uso 301
+/codigo-etica.html /codigo-etica 301
+/cookies.html /cookies 301
+
+# Redirecionar para index.html quando acessar as rotas limpas
+/politica-privacidade /politica-privacidade.html 200
+/termos-uso /termos-uso.html 200
+/codigo-etica /codigo-etica.html 200
+/cookies /cookies.html 200
+
+# Configurações de cache para melhor performance
+/*
+  X-Frame-Options: DENY
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin 

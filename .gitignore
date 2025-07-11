@@ -146,3 +146,6 @@ docs/
 # Utils files 
 *.py
 split_images
+compressed_images
+*.txt
+*.sh
