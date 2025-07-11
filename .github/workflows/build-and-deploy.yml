@@ -45,13 +45,20 @@ jobs:
         cp -r static dist/
         cp -r img dist/
         cp index.html dist/
+        cp politica-privacidade.html dist/
+        cp termos-uso.html dist/
+        cp codigo-etica.html dist/
+        cp cookies.html dist/
         cp manifest.json dist/
         cp netlify.toml dist/
+        cp _redirects dist/ || true
         
     - name: Update HTML to use minified files
       run: |
-        sed -i 's/style\.css/style.min.css/g' dist/index.html
-        sed -i 's/main\.js/main.min.js/g' dist/index.html
+        for file in dist/*.html; do
+          sed -i 's/style\.css/style.min.css/g' "$file"
+          sed -i 's/main\.js/main.min.js/g' "$file"
+        done
         
     - name: Deploy to Netlify
       uses: nwtgck/actions-netlify@v3.0
