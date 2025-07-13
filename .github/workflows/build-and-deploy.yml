@@ -52,6 +52,7 @@ jobs:
         cp manifest.json dist/
         cp netlify.toml dist/
         cp _redirects dist/ || true
+        cp _headers dist/ || true
         
     - name: Update HTML to use minified files
       run: |
