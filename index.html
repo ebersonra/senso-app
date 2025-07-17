@@ -55,7 +55,16 @@
     <section id="section0" class="section">
         <div class="content">
             <div class="logo-container">
-                <img src="img/logo/logo_senso_nova.png" alt="Psicologia Senso" class="logo">
+                <picture>
+                    <source srcset="img/logo/logo_senso_nova-140.webp 140w, img/logo/logo_senso_nova-280.webp 280w, img/logo/logo_senso_nova.webp 770w"
+                        type="image/webp"/>
+                        
+                    <img src="img/logo/logo_senso_nova-280.png"
+                        srcset="img/logo/logo_senso_nova-140.png 140w, img/logo/logo_senso_nova-280.png 280w, img/logo/logo_senso_nova.png 770w"
+                        sizes="(max-width: 480px) 140px, (max-width: 768px) 280px, 770px"
+                        alt="Psicologia Senso"
+                        class="logo"/>
+                </picture>
             </div>
         </div>
         <div class="scroll-indicator" onclick="document.getElementById('section1').scrollIntoView({behavior: 'smooth'})">
@@ -67,7 +76,17 @@
         <div class="modern-container">
             <div class="content">
                 <h1 class="title-modern">SOBRE NÓS</h1>
-                <img src="img/uploads/img-sobre-nos-senso-v2.jpg" alt="Sobre nós - Clínica Senso" class="sobre-nos-img" width="820" height="460" loading="lazy">
+                <picture>
+                     <source srcset="img/uploads/img-sobre-nos-senso-v2-230.webp 230w, img/uploads/img-sobre-nos-senso-v2-768.webp 768w, img/uploads/img-sobre-nos-senso-v2.webp 820w" type="image/webp" />
+                     <img
+                         src="img/uploads/img-sobre-nos-senso-v2-768.jpg"
+                         srcset="img/uploads/img-sobre-nos-senso-v2-230.jpg 230w, img/uploads/img-sobre-nos-senso-v2-768.jpg 768w, img/uploads/img-sobre-nos-senso-v2.jpg 820w"
+                         sizes="(max-width: 480px) 230px, (max-width: 900px) 768px, 820px"
+                         alt="Sobre nós - Clínica Senso"
+                         class="sobre-nos-img"
+                         width="820" height="460" loading="lazy"
+                     />
+                 </picture>
                 <h2>Conheça a clínica Senso e nossos psicólogos</h2>
                 <p>Na Senso tratamos com seres humanos que buscam, que vivem e que querem explorar a si mesmos, as suas possibilidades e encontrar seu lugar dentro e fora de si. Acreditamos no ser humano acima de tudo. Trabalhamos buscando a autenticidade, a libertação, a individuação que levam a transpor as dificuldades de se fazer a si e viver uma existência.</p>
                 <a href="#section2" class="btn btn-destaque">Descubra como podemos cuidar de você  
@@ -222,7 +241,17 @@
         <div class="modern-container">
             <div class="footer-content">
                 <div class="footer-left">
-                    <img src="img/logo/logo_senso_nova.png" alt="Psicologia Senso" class="footer-logo">
+                    <picture>
+                        <source
+                            srcset="img/logo/logo_senso_nova-140.webp 140w, img/logo/logo_senso_nova-280.webp 280w, img/logo/logo_senso_nova.webp 770w"
+                            type="image/webp"/>
+                        <img
+                            src="img/logo/logo_senso_nova-280.png"
+                            srcset="img/logo/logo_senso_nova-140.png 140w, img/logo/logo_senso_nova-280.png 280w, img/logo/logo_senso_nova.png 770w"
+                            sizes="(max-width: 480px) 140px, (max-width: 768px) 280px, 770px"
+                            alt="Psicologia Senso"
+                            class="footer-logo"/>
+                    </picture>
                 </div>
                 <div class="footer-center">
                     <p class="footer-text">MAB Centro Médico Rua da Paz, 195 – Terceiro andar, sala 324, Centro - Curitiba/PR – CEP 80060-160</p>

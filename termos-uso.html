@@ -52,7 +52,19 @@
 <body>
     <div class="legal-container">
         <div class="legal-header">
-            <img src="img/logo/logo_senso_nova.png" alt="Psicologia Senso" style="max-width: 200px; margin-bottom: 1rem;">
+            <picture>
+                <source
+                    srcset="img/logo/logo_senso_nova-140.webp 140w, img/logo/logo_senso_nova-280.webp 280w, img/logo/logo_senso_nova.webp 770w"
+                    type="image/webp"
+                />
+                <img
+                    src="img/logo/logo_senso_nova-280.png"
+                    srcset="img/logo/logo_senso_nova-140.png 140w, img/logo/logo_senso_nova-280.png 280w, img/logo/logo_senso_nova.png 770w"
+                    sizes="(max-width: 480px) 140px, (max-width: 768px) 200px, 770px"
+                    alt="Psicologia Senso"
+                    style="max-width: 200px; margin-bottom: 1rem;"
+                />
+            </picture>
             <h1>Termos de Uso</h1>
             <p>Última atualização: <span id="current-date"></span></p>
         </div>
