@@ -1362,3 +1362,197 @@ body {
     border-top: 1px solid #ddd;
     text-shadow: none;
 }
+
+/* ===== MENU PRINCIPAL ===== */
+.main-nav {
+    width: 100%;
+    background: var(--background-color-menu);
+    position: fixed;
+    top: 10vh;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 12px rgba(60, 89, 162, 0.08);
+    transition: background 0.3s;
+}
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 2.5rem;
+    position: relative;
+}
+.nav-logo img {
+    display: block;
+    height: 40px;
+    width: auto;
+}
+.nav-menu {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+}
+.nav-menu li a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 0.04em;
+    padding: 0.5rem 0.8rem;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+    text-transform: lowercase;
+}
+.nav-menu li a:hover,
+.nav-menu li a:focus {
+    background: var(--realce-color);
+    color: var(--primary-color);
+    outline: none;
+}
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1100;
+    margin-left: auto;
+    margin-right: 0;
+    position: absolute;
+    right: 0;
+}
+.nav-toggle-bar {
+    width: 28px;
+    height: 3px;
+    background: var(--primary-color);
+    margin: 4px 0;
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+@media (max-width: 900px) {
+    .main-nav {
+        top: 0;
+        left: 0;
+        width: 100vw;
+        background: transparent;
+        box-shadow: none;
+        padding: 0;
+    }
+    .nav-container {
+        padding: 0.5rem 1rem;
+        position: relative;
+        min-height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    .nav-logo {
+        z-index: 3002;
+        margin-right: auto;
+    }
+    .nav-toggle {
+        display: flex;
+        position: relative;
+        z-index: 3002;
+        background: none;
+        border: none;
+        margin: 0 0 0 auto;
+        right: 0;
+        top: 0;
+        transform: none;
+        width: 44px;
+        height: 44px;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+    .nav-toggle-bar {
+        width: 28px;
+        height: 3px;
+        background: var(--background-color-menu);
+        margin: 4px 0;
+        border-radius: 2px;
+        transition: all 0.3s;
+    }
+    .nav-toggle.active .nav-toggle-bar:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+    .nav-toggle.active .nav-toggle-bar:nth-child(2) {
+        opacity: 0;
+    }
+    .nav-toggle.active .nav-toggle-bar:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+    .nav-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(60, 89, 162, 0.45);
+        z-index: 3000;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+    .nav-overlay.open {
+        display: block;
+        opacity: 1;
+    }
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        width: 90vw;
+        max-width: 340px;
+        height: 100vh;
+        background: var(--background-color-menu);
+        flex-direction: column;
+        gap: 0;
+        padding: 4rem 1.5rem 2rem 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+        z-index: 3001;
+        transform: translateX(-110vw);
+        transition: transform 0.35s cubic-bezier(.77,0,.18,1);
+        opacity: 1;
+        margin: 0;
+    }
+    .nav-menu.open {
+        transform: translateX(0);
+    }
+    .nav-menu li {
+        width: 100%;
+        text-align: left;
+        margin: 0.5rem 0;
+    }
+    .nav-menu li a {
+        display: block;
+        width: 100%;
+        padding: 1.2rem 0.5rem;
+        font-size: 1.2rem;
+        border-radius: 8px;
+        text-align: left;
+        color: var(--primary-color);
+        background: none;
+        transition: background 0.2s, color 0.2s;
+    }
+    .nav-menu li a:hover,
+    .nav-menu li a:focus {
+        background: var(--realce-color);
+        color: var(--primary-color);
+        outline: none;
+    }
+}
