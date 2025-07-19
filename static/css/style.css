@@ -20,6 +20,11 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
 @font-face {
     font-family: 'Creato Display';
     src: url('/static/fonts/CreatoDisplay-Regular.woff2') format('woff2'),
@@ -41,6 +46,8 @@ body {
     font-family: 'Creato Display', Arial, sans-serif;
     line-height: 1.6;
     color: var(--text-color-neutral);
+    overflow-x: hidden;
+    max-width: 100vw;
 }
 
 .section {
@@ -199,6 +206,14 @@ p {
     width: 100%;
     padding-top: 50px;
     padding-bottom: 50px;
+    overflow: hidden;
+    position: relative;
+    max-width: 100vw;
+}
+
+.swiper-wrapper {
+    width: 100%;
+    max-width: 100%;
 }
 
 .swiper-slide {
@@ -507,6 +522,14 @@ p {
     .swiper {
         padding-top: 20px;
         padding-bottom: 20px;
+        overflow: hidden;
+        width: 100%;
+        max-width: 100vw;
+    }
+    
+    .swiper-wrapper {
+        width: 100%;
+        max-width: 100%;
     }
     #section5 h3 {
         font-size: 1rem;
@@ -541,6 +564,17 @@ p {
     }
     .swiper-slide p {
         font-size: 0.7rem;
+    }
+    
+    .swiper {
+        overflow: hidden;
+        width: 100%;
+        max-width: 100vw;
+    }
+    
+    .swiper-wrapper {
+        width: 100%;
+        max-width: 100%;
     }
 }
 
@@ -806,12 +840,12 @@ iframe {
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     padding: 3rem 2.5rem;
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 90%;
+    min-height: 80%;
     justify-content: center;
 }
 
