@@ -175,6 +175,7 @@ class SimpleRouter {
         
         // Atualizar datas nas páginas legais
         updateLegalDates();
+        initNavMenu();
     }
     
     show404() {
@@ -277,9 +278,54 @@ function updateLegalDates() {
     }
 }
 
+// ===== MENU HAMBURGUER MODERNO =====
+function initNavMenu() {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const navOverlay = document.querySelector('.nav-overlay');
+    if (navToggle && navMenu && navOverlay) {
+        // Remove listeners antigos
+        navToggle.onclick = null;
+        navOverlay.onclick = null;
+        navMenu.querySelectorAll('a').forEach(link => link.onclick = null);
+        function closeMenu() {
+            navMenu.classList.remove('open');
+            navOverlay.classList.remove('open');
+            navToggle.classList.remove('active');
+            navToggle.setAttribute('aria-expanded', 'false');
+        }
+        function openMenu() {
+            navMenu.classList.add('open');
+            navOverlay.classList.add('open');
+            navToggle.classList.add('active');
+            navToggle.setAttribute('aria-expanded', 'true');
+            // Foco no primeiro link do menu
+            const firstLink = navMenu.querySelector('a');
+            if (firstLink) firstLink.focus();
+        }
+        navToggle.addEventListener('click', function () {
+            const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+            if (expanded) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        });
+        navOverlay.addEventListener('click', closeMenu);
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+        // Fechar menu com ESC
+        document.addEventListener('keydown', function escHandler(e) {
+            if (e.key === 'Escape') closeMenu();
+        });
+    }
+}
+
 // Inicializar quando o DOM estiver carregado
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function () {
     updateFooterYear();
     updateLegalDates();
     new SimpleRouter();
+    initNavMenu();
 }); 
