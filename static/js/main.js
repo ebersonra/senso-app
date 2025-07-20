@@ -176,6 +176,12 @@ class SimpleRouter {
         // Atualizar datas nas páginas legais
         updateLegalDates();
         initNavMenu();
+        
+        // Inicializar botões de formulário
+        initFormButtons();
+        
+        // Inicializar links de redes sociais
+        initSocialLinks();
     }
     
     show404() {
@@ -212,6 +218,30 @@ class SimpleRouter {
                 </a>
             </div>
         `;
+    }
+}
+
+// Função para processar botões de formulário
+function initFormButtons() {
+    const formButtons = document.querySelectorAll('.btn-destaque[data-form-url]');
+    
+    formButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            window.open(SITE_CONFIG.APPOINTMENT_FORM_URL, '_blank');
+            e.preventDefault();
+        });
+    });
+}
+
+// Função para processar links de redes sociais
+function initSocialLinks() {
+    const instagramLink = document.querySelector('[data-instagram-link]');
+    
+    if (instagramLink) {
+        instagramLink.addEventListener('click', function(e) {
+            window.open(SITE_CONFIG.SOCIAL_MEDIA.INSTAGRAM, '_blank');
+            e.preventDefault();
+        });
     }
 }
 
@@ -328,4 +358,6 @@ document.addEventListener('DOMContentLoaded', function () {
     updateLegalDates();
     new SimpleRouter();
     initNavMenu();
+    initFormButtons();
+    initSocialLinks();
 }); 
