@@ -12,7 +12,6 @@
     --background-color-menu: #F4F4F4;
     --background-color-neutral: #FFFFFF;
     --btn-destaque-color: linear-gradient(90deg, var(--primary-color), var(--realce-color));
-    --appointment-form-url: "https://docs.google.com/forms/d/e/1FAIpQLScG660LSwVent52ZCNl9c_azfheqy3YBFlSrOVjnJsxiaPgrQ/viewform?usp=preview";
 }
 
 * {
@@ -279,7 +278,7 @@ p {
     width: 40px !important;
     height: 40px !important;
     border-radius: 50%;
-    margin-top: -10% !important;
+    margin-top: -5% !important;
 }
 
 .swiper-button-next:after,
@@ -469,6 +468,11 @@ p {
     .scroll-indicator {
         font-size: 1.3rem;
     }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        margin-top: -12% !important;
+    }
 }
 
 @media (max-width: 900px) {
@@ -552,6 +556,10 @@ p {
         width: 100%;
         margin-bottom: 2rem;
     }
+    .swiper-button-next,
+    .swiper-button-prev {
+        margin-top: -12% !important;
+    }
 }
 
 @media (max-width: 600px) {
@@ -617,6 +625,11 @@ p {
     #section5 iframe {
         height: 250px;
     }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        margin-top: -12% !important;
+    }
 }
 
 @media (max-width: 360px) {
@@ -655,6 +668,11 @@ p {
     .swiper-wrapper {
         width: 100%;
         max-width: 100%;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        margin-top: -12% !important;
     }
 }
 
