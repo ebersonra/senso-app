@@ -28,28 +28,15 @@
     <meta name="msapplication-TileColor" content="#667eea">
     
     <!-- Swiper CSS -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" as="style">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <!-- Custom CSS -->
+    <link rel="preload" href="static/css/style.css" as="style">
     <link rel="stylesheet" href="static/css/style.css" />
-
-    <script>
-        // Detects WebP support
-        (function() {
-            var supportsWebp = function() {
-                var elem = document.createElement('canvas');
-                if (!!(elem.getContext && elem.getContext('2d'))) {
-                    return elem.toDataURL('image/webp').indexOf('data:image/webp') === 0;
-                }
-                return false;
-            };
-
-            if (supportsWebp()) {
-                document.documentElement.classList.add('webp');
-            } else {
-                document.documentElement.classList.add('no-webp');
-            }
-        })();
-    </script>
+    <link rel="preload" href="static/fonts/CreatoDisplay-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="static/js/main.js" as="script">
+    <link rel="preload" href="static/js/config.js" as="script">
+    <script src="static/js/webp-detect.js" defer></script>
 </head>
 <body>
     <nav class="main-nav" aria-label="Menu principal">
@@ -311,10 +298,11 @@
     </footer>
 
     <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.8/dist/purify.min.js" defer integrity="sha384-vdScihEZCfbPnBQf+lc7LgXUdJVYyhC3yWHUW5C5P5GpHRqVnaM6HJELJxT6IqwM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer crossorigin="anonymous" integrity="sha384-2UI1PfnXFjVMQ7/ZDEF70CR943oH3v6uZrFQGGqJYlvhh4g6z6uVktxYbOlAczav"></script>
     <!-- Config JS -->
-    <script src="static/js/config.js"></script>
+    <script src="static/js/config.js" defer></script>
     <!-- Custom JS -->
-    <script src="static/js/main.js"></script>
+    <script src="static/js/main.js" defer></script>
 </body>
 </html> 

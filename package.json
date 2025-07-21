@@ -4,10 +4,14 @@
   "description": "Site da clínica psicologia Senso",
   "main": "index.html",
   "scripts": {
+    "lint": "eslint static/js/*.js",
+    "format": "prettier --write static/js/*.js",
     "build": "npm run minify-css && npm run minify-js",
     "minify-css": "cleancss -o static/css/style.min.css static/css/style.css",
     "minify-js": "terser static/js/main.js -o static/js/main.min.js --compress --mangle",
-    "dev": "python3 -m http.server 8000"
+    "dev": "python3 -m http.server 8081",
+    "build:css": "cleancss -o static/css/style.min.css static/css/style.css && brotli static/css/style.min.css && gzip -k static/css/style.min.css",
+    "build:js": "terser static/js/main.js -o static/js/main.min.js && brotli static/js/main.min.js && gzip -k static/js/main.min.js"
   },
   "devDependencies": {
     "clean-css-cli": "^5.6.2",
@@ -20,5 +24,8 @@
     "static"
   ],
   "author": "Senso Psicologia",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "dompurify": "^3.0.8"
+  }
 }

@@ -26,10 +26,12 @@ jobs:
       with:
         node-version: '18'
         
-    - name: Install dependencies
-      run: |
-        npm install -g clean-css-cli
-        npm install -g terser
+    - uses: actions/cache@v4
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+    - run: npm ci
+    - run: npm audit --production
         
     - name: Minify CSS
       run: |
