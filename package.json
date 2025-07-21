@@ -14,8 +14,8 @@
     "build:js": "terser static/js/main.js -o static/js/main.min.js && brotli static/js/main.min.js && gzip -k static/js/main.min.js"
   },
   "devDependencies": {
-    "clean-css-cli": "^5.6.2",
-    "terser": "^5.24.0"
+    "clean-css-cli": "^5.6.3",
+    "terser": "^5.43.1"
   },
   "keywords": [
     "psicologia",
