@@ -52,7 +52,19 @@
 <body>
     <div class="legal-container">
         <div class="legal-header">
-            <img src="img/logo/logo_senso_nova.png" alt="Psicologia Senso" style="max-width: 200px; margin-bottom: 1rem;">
+            <picture>
+                <source
+                    srcset="img/logo/logo_senso_nova-140.webp 140w, img/logo/logo_senso_nova-280.webp 280w, img/logo/logo_senso_nova.webp 770w"
+                    type="image/webp"
+                />
+                <img
+                    src="img/logo/logo_senso_nova-280.png"
+                    srcset="img/logo/logo_senso_nova-140.png 140w, img/logo/logo_senso_nova-280.png 280w, img/logo/logo_senso_nova.png 770w"
+                    sizes="(max-width: 480px) 140px, (max-width: 768px) 200px, 770px"
+                    alt="Psicologia Senso"
+                    style="max-width: 200px; margin-bottom: 1rem;"
+                />
+            </picture>
             <h1>Código de Ética e Regulamentação</h1>
             <p>Conformidade com CFP/CRP - Última atualização: <span id="current-date"></span></p>
         </div>
@@ -222,8 +234,7 @@
             <p>Para questões relacionadas à ética profissional ou denúncias:</p>
             
             <div class="contact-info">
-                <p><strong>E-mail:</strong> etica@psicologiasenso.com.br</p>
-                <p><strong>Telefone:</strong> (41) [número do telefone]</p>
+                <p><strong>E-mail:</strong> sensoinstituto@gmail.com</p>
                 <p><strong>Endereço:</strong> MAB Centro Médico - Rua da Paz, 195 – Terceiro andar, sala 324, Centro - Curitiba/PR – CEP 80060-160</p>
             </div>
 

@@ -24,12 +24,16 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '18'
+        node-version: '20'
         
-    - name: Install dependencies
-      run: |
-        npm install -g clean-css-cli
-        npm install -g terser
+    - uses: actions/cache@v4
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+    - run: npm ci
+    - run: npm audit --production
+    - name: Add node_modules/.bin to PATH
+      run: echo "${{ github.workspace }}/node_modules/.bin" >> $GITHUB_PATH
         
     - name: Minify CSS
       run: |
@@ -38,6 +42,15 @@ jobs:
     - name: Minify JavaScript
       run: |
         terser static/js/main.js -o static/js/main.min.js --compress --mangle
+
+    - name: Versionar arquivos minificados com hash
+      run: |
+        CSS_HASH=$(md5sum static/css/style.min.css | cut -c1-8)
+        JS_HASH=$(md5sum static/js/main.min.js | cut -c1-8)
+        mv static/css/style.min.css static/css/style.min.$CSS_HASH.css
+        mv static/js/main.min.js static/js/main.min.$JS_HASH.js
+        echo "CSS_HASH=$CSS_HASH" >> $GITHUB_ENV
+        echo "JS_HASH=$JS_HASH" >> $GITHUB_ENV
         
     - name: Create build directory
       run: |
@@ -54,11 +67,13 @@ jobs:
         cp _redirects dist/ || true
         cp _headers dist/ || true
         
-    - name: Update HTML to use minified files
+    - name: Atualizar HTML para usar arquivos versionados
       run: |
+        CSS_HASH=${{ env.CSS_HASH }}
+        JS_HASH=${{ env.JS_HASH }}
         for file in dist/*.html; do
-          sed -i 's/style\.css/style.min.css/g' "$file"
-          sed -i 's/main\.js/main.min.js/g' "$file"
+          sed -i "s|style\.css|style.min.$CSS_HASH.css|g" "$file"
+          sed -i "s|main\.js|main.min.$JS_HASH.js|g" "$file"
         done
         
     - name: Deploy to Netlify

@@ -28,230 +28,281 @@
     <meta name="msapplication-TileColor" content="#667eea">
     
     <!-- Swiper CSS -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" as="style">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <!-- Custom CSS -->
+    <link rel="preload" href="static/css/style.css" as="style">
     <link rel="stylesheet" href="static/css/style.css" />
-
-    <script>
-        // Detects WebP support
-        (function() {
-            var supportsWebp = function() {
-                var elem = document.createElement('canvas');
-                if (!!(elem.getContext && elem.getContext('2d'))) {
-                    return elem.toDataURL('image/webp').indexOf('data:image/webp') === 0;
-                }
-                return false;
-            };
-
-            if (supportsWebp()) {
-                document.documentElement.classList.add('webp');
-            } else {
-                document.documentElement.classList.add('no-webp');
-            }
-        })();
-    </script>
+    <link rel="preload" href="static/fonts/CreatoDisplay-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="static/js/main.js" as="script">
+    <link rel="preload" href="static/js/config.js" as="script">
+    <script src="static/js/webp-detect.js" defer></script>
 </head>
 <body>
-    <section id="section0" class="section">
-        <div class="content">
-            <div class="logo-container">
-                <img src="img/logo/logo_senso_nova.png" alt="Psicologia Senso" class="logo">
-            </div>
-        </div>
-        <div class="scroll-indicator" onclick="document.getElementById('section1').scrollIntoView({behavior: 'smooth'})">
-            ↓ Role para descobrir mais
-        </div>
-    </section>
-
-    <section id="section1" class="section">
-        <div class="modern-container">
-            <div class="content">
-                <h1 class="title-modern">SOBRE NÓS</h1>
-                <img src="img/uploads/img-sobre-nos-senso-v2.jpg" alt="Sobre nós - Clínica Senso" class="sobre-nos-img" width="820" height="460" loading="lazy">
-                <h2>Conheça a clínica Senso e nossos psicólogos</h2>
-                <p>Na Senso tratamos com seres humanos que buscam, que vivem e que querem explorar a si mesmos, as suas possibilidades e encontrar seu lugar dentro e fora de si. Acreditamos no ser humano acima de tudo. Trabalhamos buscando a autenticidade, a libertação, a individuação que levam a transpor as dificuldades de se fazer a si e viver uma existência.</p>
-                <a href="#section2" class="btn btn-destaque">Descubra como podemos cuidar de você  
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section id="section2" class="section">
-        <div class="modern-container">
-            <div class="content">
-                <h1 class="title-modern">TRATAMENTOS</h1>
-                <h2>O que te trouxe até aqui hoje?</h2>
-                <p>Se identifica com algum desses desafios?</p>
-                
-                <!-- Swiper -->
-                <div class="swiper mySwiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <img src="img/cards/svg/icon_card_1.svg" alt="Ícone Ansiedade e Estresse" class="icon-card" loading="lazy">
-                            <p>Ansiedade, angústia, estresse e esgotamento</p>
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="img/cards/svg/icon_card_2.svg" alt="Ícone Depressão" class="icon-card" loading="lazy">
-                            <p>Depressão, luto e perdas, e tristeza profunda</p>
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="img/cards/svg/icon_card_3.svg" alt="Ícone Transtornos" class="icon-card" loading="lazy">
-                            <p>Transtornos de personalidade</p>
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="img/cards/svg/icon_card_4.svg" alt="Ícone Conflitos" class="icon-card" loading="lazy">
-                            <p>Conflitos familiares, amorosos e identificação de abuso</p>
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="img/cards/svg/icon_card_5.svg" alt="Ícone Autoestima" class="icon-card" loading="lazy">
-                            <p>Autoestima e bullying</p>
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="img/cards/svg/icon_card_6.svg" alt="Ícone Compulsões" class="icon-card" loading="lazy">
-                            <p>Compulsões e transtornos alimentares</p>
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="img/cards/svg/icon_card_7.svg" alt="Ícone Dificuldades" class="icon-card" loading="lazy">
-                            <p>Dificuldades acadêmicas, profissionais, de adaptação e de organização</p>
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="img/cards/svg/icon_card_8.svg" alt="Ícone Emoções" class="icon-card" loading="lazy">
-                            <p>Dificuldades de expressão e controle emocional</p>
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="img/cards/svg/icon_card_9.svg" alt="Ícone Digital" class="icon-card" loading="lazy">
-                            <p>Influência digital</p>
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="img/cards/svg/icon_card_10.svg" alt="Ícone Identidade" class="icon-card" loading="lazy">
-                            <p>Sexualidade e identidade de gênero</p>
-                        </div>
-                    </div>
-                    <div class="swiper-pagination"></div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
-                </div>
-
-                <p>Tome sua vida de volta para si</p>
-
-                <a href="#section3" class="btn btn-destaque">Encontre o cuidado certo para o que você está vivendo</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="section3" class="section">
-        <div class="modern-container">
-            <div class="content">
-                <h1 class="title-modern">SERVIÇOS</h1>
-                <h2>Escolher terapia é respeitar a si mesmo</h2>
-                <p>Na clínica senso oferecemos:</p>
-                <div class="cards-section3">
-                    <div class="card-section3">
-                        <div class="card-title">1</div>
-                        <div class="card-desc">Acolhimento e suporte contínuo sempre que precisar</div>
-                    </div>
-                    <div class="card-section3">
-                        <div class="card-title">2</div>
-                        <div class="card-desc">Um ambiente seguro e livre de julgamentos</div>
-                    </div>
-                    <div class="card-section3">
-                        <div class="card-title">3</div>
-                        <div class="card-desc">Técnicas terapêuticas personalizadas para suas necessidades</div>
-                    </div>
-                    <div class="card-section3">
-                        <div class="card-title">4</div>
-                        <div class="card-desc">Atendimento a adolescentes, jovens, adultos e idosos</div>
-                    </div>
-                    <div class="card-section3">
-                        <div class="card-title">5</div>
-                        <div class="card-desc">Atendimento a pessoas em situação de vulnerabilidade social e cultural, estrangeiros e minorias</div>
-                    </div>
-                </div>
-                <a href="#section4" class="btn btn-destaque">Antes de abrir sua história, conheça a nossa</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="section4" class="section">
-        <div class="modern-container">
-            <div class="content">
-                <h1 class="title-modern">QUEM SOMOS</h1>
-
-                <p>Somos profissionais <strong>especializados</strong> em Terapia Analítica Junguiana, Terapia Existencial Fenomenológica e Terapia Cognitivo-Comportamental, com foco no desenvolvimento de um espaço de possibilidades, pautado em intimidade, <strong>respeito</strong>, <strong>escuta</strong>, descoberta, compreensão, presença e <strong>compromisso</strong>.</p>
-                
-                <div class="equipe-cards-container">
-                    <div class="modern-card-equipe">
-                        <img src="img/uploads/card_heloisa_site_v1.png" alt="Psicologa Heloisa do Vale" class="equipe-foto" width="360" height="360" loading="lazy">
-                        <h2>Heloisa do Vale - CRP 08/40879</h2>
-                        <p>Escutar com presença, acolher com respeito e caminhar junto no processo de cada um. É assim que compreendo a prática clínica. Com base na Terapia Cognitivo-Comportamental (TCC), colaboro para que cada pessoa possa reconhecer como pensamentos, emoções e comportamentos se relacionam, e, a partir disso, construir caminhos mais conscientes e significativos.</p>
-                    </div>
-                    <div class="modern-card-equipe">
-                        <img src="img/uploads/card_rafael_site_v1.png" alt="Psicólogo Rafael Stoco Pereira" class="equipe-foto" width="360" height="360" loading="lazy">
-                        <h2>Rafael Stoco Pereira - CRP 08/42222</h2>
-                        <p>Enfrentar dificuldades, ser único para cada indivíduo, fomentar movimento, dar vazão ao sofrimento, explorar com profundidade, trocar perspectivas, comunicar, expressar e ouvir. Para mim isso define e prática psicológica clínica. Pela perspectiva da psicologia analítica, procuro desenvolver, na prática clínica, um espaço em que você entre em contato íntimo consigo mesmo.</p>
-                    </div>
-                    <div class="modern-card-equipe">
-                        <img src="img/uploads/card_andre_site_v1.png" alt="Psicólogo André Borges O. Santos" class="equipe-foto" width="360" height="360" loading="lazy">
-                        <h2>André Borges O. Santos - CRP 08/40954</h2>
-                        <p>Minha psicologia é feita para olhar para frente, entre tudo o que podemos ser e, cuidando e entendendo de nossa história, podemos decidir por nossa existência. Se somos capazes de olhar para trás, podemos nos capacitar a olhar para frente.</p>
-                        <p>Embaso-me nas filosofias e psicologias Existenciais, bem como e escopo de mente das Psicologias Análitico-Junguiana e das técnicas das Terapias Cognitivo-Comportamentais (pós-graduando pelo Instituto de Terapia Cognitivo Comportamental).</p>
-                    </div>
-                </div>
-
-                <a href="#section5" class="btn btn-destaque">Agende uma consulta</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="section5" class="section">
-        <div class="modern-container">
-            <div class="content">
-                <h1 class="title-modern">AGENDE UMA CONSULTA</h1>
-                <h3>Atendimento online</h3>
-                <p>Podemos utilizar qualquer uma destas plataformas para os atendimentos online:  <strong>Google Meet</strong> ou <strong>WhatsApp</strong>. Ambas platformas têm <strong>dados criptografadas</strong> e <strong>são seguras</strong>, estando vedada toda gravação de áudio ou vídeo dos encontros para a nossa maior <strong> privacidade e segurança</strong>. É importante estar em um <strong>local tranquilo</strong> e privativo para maior comodidade.</p>
-                <h3>Horário de atendimento: Segunda à Sexta das 8h às 22h</h3>
-                <h3>Atendimento Presencial</h3>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3603.2188737029437!2d-49.26027842398773!3d-25.430945077561187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce446a0f53e09%3A0xf22fd4d8aea2f120!2sMAB%20Centro%20M%C3%A9dico!5e0!3m2!1spt-BR!2sbr!4v1751432157062!5m2!1spt-BR!2sbr" width="100%" height="450" loading="lazy" referrerpolicy="no-referrer-when-downgrade" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
+    <nav class="main-nav" aria-label="Menu principal">
+        <div class="nav-container">
             
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLScG660LSwVent52ZCNl9c_azfheqy3YBFlSrOVjnJsxiaPgrQ/viewform?usp=preview" class="btn btn-destaque" target="_blank">Transforme dor em força. Agende sua sessão!</a>
-            </div>
+            <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-menu">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+            <div class="nav-overlay" tabindex="-1"></div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#section0">Inicio</a></li>
+                <li><a href="#section1">Sobre nós</a></li>
+                <li><a href="#section2">Tratamentos</a></li>
+                <li><a href="#section3">Serviços</a></li>
+                <li><a href="#section4">Quem somos</a></li>
+                <li><a href="#section5">Contato</a></li>
+                <li><a href="#section6">Informações</a></li>
+            </ul>
         </div>
-    </section>
+    </nav>
 
-    <section id="section6" class="section">
-        <div class="modern-container">
-            <div class="footer-content">
-                <div class="footer-left">
-                    <img src="img/logo/logo_senso_nova.png" alt="Psicologia Senso" class="footer-logo">
+    <header role="banner">
+        <section id="section0" class="section">
+            <div class="content">
+                <div class="logo-container">
+                    <picture>
+                        <source srcset="img/logo/logo_senso_nova-140.webp 140w, img/logo/logo_senso_nova-280.webp 280w, img/logo/logo_senso_nova.webp 770w"
+                            type="image/webp"/>
+                            
+                        <img src="img/logo/logo_senso_nova-280.png"
+                            srcset="img/logo/logo_senso_nova-140.png 140w, img/logo/logo_senso_nova-280.png 280w, img/logo/logo_senso_nova.png 770w"
+                            sizes="(max-width: 480px) 140px, (max-width: 768px) 280px, 770px"
+                            alt="Psicologia Senso"
+                            class="logo"
+                            fetchpriority="high"/>
+                    </picture>
                 </div>
-                <div class="footer-center">
-                    <p class="footer-text">MAB Centro Médico Rua da Paz, 195 – Terceiro andar, sala 324, Centro - Curitiba/PR – CEP 80060-160</p>
-                    <div class="alert-card">
-                        <p class="footer-text"><strong>Atenção:</strong> Este site não oferece atendimento imediato a pessoas em situação de emergência. Nesse caso, ligue para o número <strong>188 (Centro de Valorização da Vida – CVV)</strong> ou entre em contato com o Serviço de Atendimento Móvel de Urgência no número <strong>192. (SAMU).</strong></p>
-                    </div>
-                </div>
-                <div class="footer-right">
-                    <a href="https://www.instagram.com/psicologiasenso/" target="_blank" class="footer-social" aria-label="Instagram">
-                        <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.974.974 1.246 2.241 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.974.974-2.241 1.246-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.308-.974-.974-1.246-2.241-1.308-3.608C2.175 15.647 2.163 15.267 2.163 12s.012-3.584.07-4.85c.062-1.366.334-2.633 1.308-3.608.974-.974 2.241-1.246 3.608-1.308C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.332.013 7.052.072 5.771.131 4.659.414 3.678 1.395 2.697 2.376 2.414 3.488 2.355 4.769.013 8.332 0 8.741 0 12c0 3.259.013 3.668.072 4.948.059 1.281.342 2.393 1.323 3.374.981.981 2.093 1.264 3.374 1.323C8.332 23.987 8.741 24 12 24s3.668-.013 4.948-.072c1.281-.059 2.393-.342 3.374-1.323.981-.981 1.264-2.093 1.323-3.374.059-1.28.072-1.689.072-4.948s-.013-3.668-.072-4.948c-.059-1.281-.342-2.393-1.323-3.374-.981-.981-2.093-1.264-3.374-1.323C15.668.013 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm6.406-11.845a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>
+            </div>
+            <div class="scroll-indicator" onclick="document.getElementById('section1').scrollIntoView({behavior: 'smooth'})">
+                ↓ Role para descobrir mais
+            </div>
+        </section>
+    </header>
+
+    <main id="main-content" tabindex="-1" role="main">
+        <section id="section1" class="section">
+            <div class="modern-container">
+                <div class="content">
+                    <h1 class="title-modern">SOBRE NÓS</h1>
+                    <picture>
+                         <source srcset="img/uploads/img-sobre-nos-senso-v2-230.webp 230w, img/uploads/img-sobre-nos-senso-v2-768.webp 768w, img/uploads/img-sobre-nos-senso-v2.webp 820w" type="image/webp" />
+                         <img
+                             src="img/uploads/img-sobre-nos-senso-v2-768.jpg"
+                             srcset="img/uploads/img-sobre-nos-senso-v2-230.jpg 230w, img/uploads/img-sobre-nos-senso-v2-768.jpg 768w, img/uploads/img-sobre-nos-senso-v2.jpg 820w"
+                             sizes="(max-width: 480px) 230px, (max-width: 900px) 768px, 820px"
+                             alt="Sobre nós - Clínica Senso"
+                             class="sobre-nos-img"
+                             width="820" height="460" loading="lazy"
+                             fetchpriority="high"
+                         />
+                     </picture>
+                    <h2>Conheça a clínica Senso e nossos psicólogos</h2>
+                    <p>Na Senso tratamos com seres humanos que buscam, que vivem e que querem explorar a si mesmos, as suas possibilidades e encontrar seu lugar dentro e fora de si. Acreditamos no ser humano acima de tudo. Trabalhamos buscando a autenticidade, a libertação, a individuação que levam a transpor as dificuldades de se fazer a si e viver uma existência.</p>
+                    <a href="#section2" target="_blank" class="btn btn-destaque" data-form-url aria-label="Descubra como podemos cuidar de você">Descubra como podemos cuidar de você  
                     </a>
                 </div>
             </div>
-            <div class="footer-copyright">
-                <p>&copy; <span id="footer-year"></span> Psicologia Senso. Todos os direitos reservados.</p>
-                <div class="footer-links">
-                    <a href="#section0">Início</a> |
-                    <a href="politica-privacidade">Política de Privacidade</a> |
-                    <a href="termos-uso">Termos de Uso</a> |
-                    <a href="codigo-etica">Código de Ética</a> |
-                    <a href="cookies">Política de Cookies</a>
+        </section>
+
+        <section id="section2" class="section">
+            <div class="modern-container">
+                <div class="content">
+                    <h1 class="title-modern">TRATAMENTOS</h1>
+                    <h2>O que te trouxe até aqui hoje?</h2>
+                    <p>Se identifica com algum desses desafios?</p>
+                    
+                    <!-- Swiper -->
+                    <div class="swiper mySwiper" aria-label="Carrossel de tratamentos oferecidos" tabindex="0">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="img/cards/svg/icon_card_1.svg" alt="Ícone Ansiedade e Estresse" class="icon-card" loading="lazy">
+                                <p>Ansiedade, angústia, estresse e esgotamento</p>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/cards/svg/icon_card_2.svg" alt="Ícone Depressão" class="icon-card" loading="lazy">
+                                <p>Depressão, luto e perdas, e tristeza profunda</p>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/cards/svg/icon_card_3.svg" alt="Ícone Transtornos" class="icon-card" loading="lazy">
+                                <p>Transtornos de personalidade</p>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/cards/svg/icon_card_4.svg" alt="Ícone Conflitos" class="icon-card" loading="lazy">
+                                <p>Conflitos familiares, amorosos e identificação de abuso</p>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/cards/svg/icon_card_5.svg" alt="Ícone Autoestima" class="icon-card" loading="lazy">
+                                <p>Autoestima e bullying</p>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/cards/svg/icon_card_6.svg" alt="Ícone Compulsões" class="icon-card" loading="lazy">
+                                <p>Compulsões e transtornos alimentares</p>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/cards/svg/icon_card_7.svg" alt="Ícone Dificuldades" class="icon-card" loading="lazy">
+                                <p>Dificuldades acadêmicas, profissionais, de adaptação e de organização</p>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/cards/svg/icon_card_8.svg" alt="Ícone Emoções" class="icon-card" loading="lazy">
+                                <p>Dificuldades de expressão e controle emocional</p>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/cards/svg/icon_card_9.svg" alt="Ícone Digital" class="icon-card" loading="lazy">
+                                <p>Influência digital</p>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/cards/svg/icon_card_10.svg" alt="Ícone Identidade" class="icon-card" loading="lazy">
+                                <p>Sexualidade e identidade de gênero</p>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-next" aria-label="Próximo slide" tabindex="0"></div>
+                        <div class="swiper-button-prev" aria-label="Slide anterior" tabindex="0"></div>
+                    </div>
+
+                    <p>Tome sua vida de volta para si</p>
+
+                    <a href="#section3" target="_blank" class="btn btn-destaque" data-form-url aria-label="Encontre o cuidado certo para o que você está vivendo">Encontre o cuidado certo para o que você está vivendo</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <section id="section3" class="section">
+            <div class="modern-container">
+                <div class="content">
+                    <h1 class="title-modern">SERVIÇOS</h1>
+                    <h2>Escolher terapia é respeitar a si mesmo</h2>
+                    <p>Na clínica senso oferecemos:</p>
+                    <div class="cards-section3">
+                        <div class="card-section3">
+                            <div class="card-title">1</div>
+                            <div class="card-desc">Acolhimento e suporte contínuo sempre que precisar</div>
+                        </div>
+                        <div class="card-section3">
+                            <div class="card-title">2</div>
+                            <div class="card-desc">Um ambiente seguro e livre de julgamentos</div>
+                        </div>
+                        <div class="card-section3">
+                            <div class="card-title">3</div>
+                            <div class="card-desc">Técnicas terapêuticas personalizadas para suas necessidades</div>
+                        </div>
+                        <div class="card-section3">
+                            <div class="card-title">4</div>
+                            <div class="card-desc">Atendimento a adolescentes, jovens, adultos e idosos</div>
+                        </div>
+                        <div class="card-section3">
+                            <div class="card-title">5</div>
+                            <div class="card-desc">Atendimento a pessoas em situação de vulnerabilidade social e cultural, estrangeiros e minorias</div>
+                        </div>
+                    </div>
+                    <a href="#section4" target="_blank" class="btn btn-destaque" data-form-url aria-label="Antes de abrir sua história, conheça a nossa">Antes de abrir sua história, conheça a nossa</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="section4" class="section">
+            <div class="modern-container">
+                <div class="content">
+                    <h1 class="title-modern">QUEM SOMOS</h1>
+
+                    <p>Somos profissionais <strong>especializados</strong> em Terapia Analítica Junguiana, Terapia Existencial Fenomenológica e Terapia Cognitivo-Comportamental, com foco no desenvolvimento de um espaço de possibilidades, pautado em intimidade, <strong>respeito</strong>, <strong>escuta</strong>, descoberta, compreensão, presença e <strong>compromisso</strong>.</p>
+                    
+                    <div class="equipe-cards-container">
+                        <div class="modern-card-equipe">
+                            <img src="img/uploads/card_heloisa_site_v1.png" alt="Psicologa Heloisa do Vale" class="equipe-foto" width="360" height="360" loading="lazy">
+                            <h2>Heloisa do Vale - CRP 08/40879</h2>
+                            <p>Escutar com presença, acolher com respeito e caminhar junto no processo de cada um. É assim que compreendo a prática clínica. Com base na Terapia Cognitivo-Comportamental (TCC), colaboro para que cada pessoa possa reconhecer como pensamentos, emoções e comportamentos se relacionam, e, a partir disso, construir caminhos mais conscientes e significativos.</p>
+                        </div>
+                        <div class="modern-card-equipe">
+                            <img src="img/uploads/card_rafael_site_v1.png" alt="Psicólogo Rafael Stoco Pereira" class="equipe-foto" width="360" height="360" loading="lazy">
+                            <h2>Rafael Stoco Pereira - CRP 08/42222</h2>
+                            <p>Enfrentar dificuldades, ser único para cada indivíduo, fomentar movimento, dar vazão ao sofrimento, explorar com profundidade, trocar perspectivas, comunicar, expressar e ouvir. Para mim isso define e prática psicológica clínica. Pela perspectiva da psicologia analítica, procuro desenvolver, na prática clínica, um espaço em que você entre em contato íntimo consigo mesmo.</p>
+                        </div>
+                        <div class="modern-card-equipe">
+                            <img src="img/uploads/card_andre_site_v1.png" alt="Psicólogo André Borges O. Santos" class="equipe-foto" width="360" height="360" loading="lazy">
+                            <h2>André Borges O. Santos - CRP 08/40954</h2>
+                            <p>Minha psicologia é feita para olhar para frente, entre tudo o que podemos ser e, cuidando e entendendo de nossa história, podemos decidir por nossa existência. Se somos capazes de olhar para trás, podemos nos capacitar a olhar para frente.</p>
+                            <p>Embaso-me nas filosofias e psicologias Existenciais, bem como e escopo de mente das Psicologias Análitico-Junguiana e das técnicas das Terapias Cognitivo-Comportamentais (pós-graduando pelo Instituto de Terapia Cognitivo Comportamental).</p>
+                        </div>
+                    </div>
+
+                    <a href="#section5" target="_blank" class="btn btn-destaque" data-form-url aria-label="Agende uma consulta">Agende uma consulta</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="section5" class="section">
+            <div class="modern-container">
+                <div class="content">
+                    <h1 class="title-modern">AGENDE UMA CONSULTA</h1>
+                    <h3>Atendimento online</h3>
+                    <p>Podemos utilizar qualquer uma destas plataformas para os atendimentos online:  <strong>Google Meet</strong> ou <strong>WhatsApp</strong>. Ambas platformas têm <strong>dados criptografadas</strong> e <strong>são seguras</strong>, estando vedada toda gravação de áudio ou vídeo dos encontros para a nossa maior <strong> privacidade e segurança</strong>. É importante estar em um <strong>local tranquilo</strong> e privativo para maior comodidade.</p>
+                    <h3>Horário de atendimento: Segunda à Sexta das 8h às 22h</h3>
+                    <h3>Atendimento Presencial</h3>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3603.2188737029437!2d-49.26027842398773!3d-25.430945077561187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce446a0f53e09%3A0x2b7e2e2e2e2e2e2e!2sMAB%20Centro%20M%C3%A9dico!5e0!3m2!1spt-BR!2sbr!4v1681234567890!5m2!1spt-BR!2sbr"
+                        width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                        title="Mapa de localização da Clínica Senso em Curitiba, Paraná">
+                    </iframe>
+                
+                    <a href="#" class="btn btn-destaque" data-form-url target="_blank" rel="noopener" aria-label="Transforme dor em força. Agende sua sessão! (abre em nova aba)">Transforme dor em força. Agende sua sessão!</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer role="contentinfo">
+        <section id="section6" class="section">
+            <div class="modern-container">
+                <div class="footer-content">
+                    <div class="footer-left">
+                        <picture>
+                            <source
+                                srcset="img/logo/logo_senso_nova-140.webp 140w, img/logo/logo_senso_nova-280.webp 280w, img/logo/logo_senso_nova.webp 770w"
+                                type="image/webp"/>
+                            <img
+                                src="img/logo/logo_senso_nova-280.png"
+                                srcset="img/logo/logo_senso_nova-140.png 140w, img/logo/logo_senso_nova-280.png 280w, img/logo/logo_senso_nova.png 770w"
+                                sizes="(max-width: 480px) 140px, (max-width: 768px) 280px, 770px"
+                                alt="Psicologia Senso"
+                                class="footer-logo"/>
+                        </picture>
+                    </div>
+                    <div class="footer-center">
+                        <p class="footer-text">MAB Centro Médico Rua da Paz, 195 – Terceiro andar, sala 324, Centro - Curitiba/PR – CEP 80060-160</p>
+                        <div class="alert-card">
+                            <p class="footer-text"><strong>Atenção:</strong> Este site não oferece atendimento imediato a pessoas em situação de emergência. Nesse caso, ligue para o número <strong>188 (Centro de Valorização da Vida – CVV)</strong> ou entre em contato com o Serviço de Atendimento Móvel de Urgência no número <strong>192. (SAMU).</strong></p>
+                        </div>
+                    </div>
+                    <div class="footer-right">
+                        <a href="#" class="footer-social" data-instagram-link target="_blank" aria-label="Instagram">
+                            <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.974.974 1.246 2.241 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.974.974-2.241 1.246-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.308-.974-.974-1.246-2.241-1.308-3.608C2.175 15.647 2.163 15.267 2.163 12s.012-3.584.07-4.85c.062-1.366.334-2.633 1.308-3.608.974-.974 2.241-1.246 3.608-1.308C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.332.013 7.052.072 5.771.131 4.659.414 3.678 1.395 2.697 2.376 2.414 3.488 2.355 4.769.013 8.332 0 8.741 0 12c0 3.259.013 3.668.072 4.948.059 1.281.342 2.393 1.323 3.374.981.981 2.093 1.264 3.374 1.323C8.332 23.987 8.741 24 12 24s3.668-.013 4.948-.072c1.281-.059 2.393-.342 3.374-1.323.981-.981 1.264-2.093 1.323-3.374.059-1.28.072-1.689.072-4.948s-.013-3.668-.072-4.948c-.059-1.281-.342-2.393-1.323-3.374-.981-.981-2.093-1.264-3.374-1.323C15.668.013 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm6.406-11.845a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-copyright">
+                    <p>&copy; <span id="footer-year"></span> Psicologia Senso. Todos os direitos reservados.</p>
+                    <p>sensoinstituto@gmail.com</p>
+                    <div class="footer-links">
+                        <a href="#section0">Início</a> |
+                        <a href="politica-privacidade">Política de Privacidade</a> |
+                        <a href="termos-uso">Termos de Uso</a> |
+                        <a href="codigo-etica">Código de Ética</a> |
+                        <a href="cookies">Política de Cookies</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </footer>
 
     <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.8/dist/purify.min.js" defer integrity="sha384-vdScihEZCfbPnBQf+lc7LgXUdJVYyhC3yWHUW5C5P5GpHRqVnaM6HJELJxT6IqwM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer crossorigin="anonymous" integrity="sha384-2UI1PfnXFjVMQ7/ZDEF70CR943oH3v6uZrFQGGqJYlvhh4g6z6uVktxYbOlAczav"></script>
+    <!-- Config JS -->
+    <script src="static/js/config.js" defer></script>
     <!-- Custom JS -->
-    <script src="static/js/main.js"></script>
+    <script src="static/js/main.js" defer></script>
 </body>
 </html> 
