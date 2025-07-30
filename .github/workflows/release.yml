@@ -75,7 +75,22 @@ jobs:
         git tag ${{ steps.get_version.outputs.new_version }}
 
     - name: Push changes and tags
-      run: git push --follow-tags
+      run: |
+        git push --follow-tags
+        echo "Waiting for tag to be available on remote..."
+        sleep 5
+
+    - name: Verify tag exists on remote
+      run: |
+        # Wait and verify the tag is available on remote
+        for i in {1..10}; do
+          if git ls-remote --tags origin | grep -q "${{ steps.get_version.outputs.new_version }}"; then
+            echo "Tag ${{ steps.get_version.outputs.new_version }} found on remote"
+            break
+          fi
+          echo "Waiting for tag to be available... (attempt $i/10)"
+          sleep 3
+        done
 
     - name: Create GitHub Release
       env:
