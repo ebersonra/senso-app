@@ -149,3 +149,5 @@ split_images
 compressed_images
 *.txt
 *.sh
+# Local Netlify folder
+.netlify
