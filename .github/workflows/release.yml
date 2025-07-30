@@ -66,31 +66,21 @@ jobs:
         sed -i 's/__VERSION__/${{ steps.get_version.outputs.new_version }}/g' index.html
 
     - name: Commit version changes and create tag
+      id: commit_and_tag
       run: |
         # Add both package.json and index.html changes
         git add package.json package-lock.json index.html
         git commit -m "chore(release): new release ${{ steps.get_version.outputs.new_version }}"
         
+        # Get the commit SHA
+        commit_sha=$(git rev-parse HEAD)
+        echo "commit_sha=${commit_sha}" >> $GITHUB_OUTPUT
+        
         # Create the tag
         git tag ${{ steps.get_version.outputs.new_version }}
 
     - name: Push changes and tags
-      run: |
-        git push --follow-tags
-        echo "Waiting for tag to be available on remote..."
-        sleep 5
-
-    - name: Verify tag exists on remote
-      run: |
-        # Wait and verify the tag is available on remote
-        for i in {1..10}; do
-          if git ls-remote --tags origin | grep -q "${{ steps.get_version.outputs.new_version }}"; then
-            echo "Tag ${{ steps.get_version.outputs.new_version }} found on remote"
-            break
-          fi
-          echo "Waiting for tag to be available... (attempt $i/10)"
-          sleep 3
-        done
+      run: git push --follow-tags
 
     - name: Create GitHub Release
       env:
@@ -98,4 +88,5 @@ jobs:
       run: |
         gh release create ${{ steps.get_version.outputs.new_version }} \
           --title "Release ${{ steps.get_version.outputs.new_version }}" \
-          --notes "A new release has been created. See the commits for details." 
+          --notes "A new release has been created. See the commits for details." \
+          --target ${{ steps.commit_and_tag.outputs.commit_sha }}
