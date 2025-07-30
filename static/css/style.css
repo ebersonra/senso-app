@@ -296,167 +296,6 @@ p {
     bottom: 0;
 }
 
-/* Background images for each section */
-/* Section 0 - Logo */
-/* .no-webp #section0 {
-    background-image: url('../../img/bg/part_0.jpg');
-    background-position: center top;
-    background-size: cover;
-}
-.webp #section0 {
-    background-image: url('../../img/bg/part_0.webp');
-    background-position: center top;
-    background-size: cover;
-}
-
-.no-webp #section1 {
-    background-image: url('../../img/bg/part_1.jpg');
-    background-position: center top;
-    background-size: cover;
-}
-.webp #section1 {
-    background-image: url('../../img/bg/part_1.webp');
-    background-position: center top;
-    background-size: cover;
-}
-
-.no-webp #section2 {
-    background-image: url('../../img/bg/part_2.jpg');
-    background-position: center top;
-    background-size: cover;
-}
-.webp #section2 {
-    background-image: url('../../img/bg/part_2.webp');
-    background-position: center top;
-    background-size: cover;
-}
-
-.no-webp #section3 {
-    background-image: url('../../img/bg/part_3.jpg');
-    background-position: center top;
-    background-size: cover;
-}
-.webp #section3 {
-    background-image: url('../../img/bg/part_3.webp');
-    background-position: center top;
-    background-size: cover;
-}
-
-.no-webp #section4 {
-    background-image: url('../../img/bg/part_4.jpg');
-    background-position: center top;
-    background-size: cover;
-}
-.webp #section4 {
-    background-image: url('../../img/bg/part_4.webp');
-    background-position: center top;
-    background-size: cover;
-}
-
-.no-webp #section5 {
-    background-image: url('../../img/bg/part_5.jpg');
-    background-position: center top;
-    background-size: cover;
-}
-.webp #section5 {
-    background-image: url('../../img/bg/part_5.webp');
-    background-position: center top;
-    background-size: cover;
-} */
-
-/* Section 6 - Background */
-/*.no-webp #section6 {
-    background-image: url('../../img/bg/part_6.jpg');
-    background-position: center top;
-    background-size: cover;
-}
-.webp #section6 {
-    background-image: url('../../img/bg/part_6.webp');
-    background-position: center top;
-    background-size: cover;
-}*/
-
-/* Mobile Background images for each section */
-@media (max-width: 768px) {
-    /* Section 0 - Logo */
-    /*.no-webp #section0 {
-        background-image: url('../../img/bg/mobile/mobile_part_0.jpg');
-        background-position: center top;
-        background-size: cover;
-    }
-    .webp #section0 {
-        background-image: url('../../img/bg/mobile/mobile_part_0.webp');
-        background-position: center top;
-        background-size: cover;
-    }
-
-    .no-webp #section1 {
-        background-image: url('../../img/bg/mobile/mobile_part_1.jpg');
-        background-position: center top;
-        background-size: cover;
-    }
-    .webp #section1 {
-        background-image: url('../../img/bg/mobile/mobile_part_1.webp');
-        background-position: center top;
-        background-size: cover;
-    }
-
-    .no-webp #section2 {
-        background-image: url('../../img/bg/mobile/mobile_part_2.jpg');
-        background-position: center top;
-        background-size: cover;
-    }
-    .webp #section2 {
-        background-image: url('../../img/bg/mobile/mobile_part_2.webp');
-        background-position: center top;
-        background-size: cover;
-    }
-
-    .no-webp #section3 {
-        background-image: url('../../img/bg/mobile/mobile_part_3.jpg');
-        background-position: center top;
-        background-size: cover;
-    }
-    .webp #section3 {
-        background-image: url('../../img/bg/mobile/mobile_part_3.webp');
-        background-position: center top;
-        background-size: cover;
-    }
-
-    .no-webp #section4 {
-        background-image: url('../../img/bg/mobile/mobile_part_4.jpg');
-        background-position: center top;
-        background-size: cover;
-    }
-    .webp #section4 {
-        background-image: url('../../img/bg/mobile/mobile_part_4.webp');
-        background-position: center top;
-        background-size: cover;
-    }
-
-    .no-webp #section5 {
-        background-image: url('../../img/bg/mobile/mobile_part_5.jpg');
-        background-position: center top;
-        background-size: cover;
-    }
-    .webp #section5 {
-        background-image: url('../../img/bg/mobile/mobile_part_5.webp');
-        background-position: center top;
-        background-size: cover;
-    }
-
-    .no-webp #section6 {
-        background-image: url('../../img/bg/mobile/mobile_part_6.jpg');
-        background-position: center top;
-        background-size: cover;
-    }
-    .webp #section6 {
-        background-image: url('../../img/bg/mobile/mobile_part_6.webp');
-        background-position: center top;
-        background-size: cover;
-    }*/
-}
-
 /* Responsive Design */
 @media (max-width: 1024px) {
     .logo {
@@ -1161,6 +1000,13 @@ iframe {
 .footer-links a:hover {
     color: var(--realce-color);
     text-decoration: underline;
+}
+
+.footer-links .version-info {
+    color: var(--text-color-neutral);
+    font-size: 0.8rem;
+    opacity: 0.7;
+    font-weight: 300;
 }
 
 @media (max-width: 768px) {

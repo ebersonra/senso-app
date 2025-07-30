@@ -50,6 +50,13 @@ jobs:
         new_version=$(npm version ${{ github.event.inputs.version_type }} -m "chore(release): new release %s")
         echo "new_version=${new_version}" >> $GITHUB_OUTPUT
 
+    - name: Update version in index.html
+      run: |
+        # Replace __VERSION__ placeholder with actual version
+        sed -i 's/__VERSION__/${{ steps.bump_version.outputs.new_version }}/g' index.html
+        git add index.html
+        git commit -m "chore: update version in index.html to ${{ steps.bump_version.outputs.new_version }}"
+
     - name: Push changes and tags
       run: git push --follow-tags
 
