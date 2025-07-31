@@ -60,19 +60,19 @@ jobs:
         fi
         echo "new_version=${new_version}" >> $GITHUB_OUTPUT
 
-    - name: Update version in index.html
+    - name: Update version in HTML
       run: |
-        # Replace __VERSION__ placeholder with actual version
+        # Update the version in the inline script
         new_version="${{ steps.get_version.outputs.new_version }}"
         echo "Updating version to: $new_version"
-        sed -i "s/__VERSION__/$new_version/g" index.html
+        sed -i "s/window\.SITE_VERSION = 'v[^']*';/window.SITE_VERSION = '$new_version';/g" index.html
         echo "Verifying replacement:"
-        grep "version-info" index.html
+        grep "SITE_VERSION" index.html
 
     - name: Commit version changes and create tag
       id: commit_and_tag
       run: |
-        # Add both package.json and index.html changes
+        # Add package.json and updated HTML
         git add package.json package-lock.json index.html
         git commit -m "chore(release): new release ${{ steps.get_version.outputs.new_version }}"
         

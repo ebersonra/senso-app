@@ -353,9 +353,22 @@ function initNavMenu() {
 }
 
 // Inicializar quando o DOM estiver carregado
+// Função para atualizar a versão do site
+function updateVersionInfo() {
+    const versionElement = document.getElementById('version-display');
+    if (versionElement) {
+        // Tenta pegar da variável global definida durante o build
+        if (typeof SITE_VERSION !== 'undefined') {
+            versionElement.textContent = SITE_VERSION;
+        }
+        // Fallback: mantém versão atual se variável não estiver disponível
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     updateFooterYear();
     updateLegalDates();
+    updateVersionInfo();
     new SimpleRouter();
     initNavMenu();
     initFormButtons();
