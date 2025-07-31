@@ -63,7 +63,11 @@ jobs:
     - name: Update version in index.html
       run: |
         # Replace __VERSION__ placeholder with actual version
-        sed -i 's/__VERSION__/${{ steps.get_version.outputs.new_version }}/g' index.html
+        new_version="${{ steps.get_version.outputs.new_version }}"
+        echo "Updating version to: $new_version"
+        sed -i "s/__VERSION__/$new_version/g" index.html
+        echo "Verifying replacement:"
+        grep "version-info" index.html
 
     - name: Commit version changes and create tag
       id: commit_and_tag
