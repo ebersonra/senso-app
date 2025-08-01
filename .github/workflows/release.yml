@@ -87,7 +87,12 @@ jobs:
       run: |
         # Ensure we're on main branch and push changes with tags
         git checkout main
-        git push origin main --follow-tags
+
+        #Push the changes
+        git push origin main
+
+        # Push the tag
+        git push origin ${{ steps.get_version.outputs.new_version }}
 
     - name: Create GitHub Release
       env:
