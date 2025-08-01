@@ -18,6 +18,14 @@ jobs:
       statuses: write
     
     steps:
+    - name: Debug context
+      run: |
+        echo "Event: ${{ github.event_name }}"
+        echo "Ref: ${{ github.ref }}"
+        echo "Ref name: ${{ github.ref_name }}"
+        echo "Is tag: ${{ startsWith(github.ref, 'refs/tags/v') }}"
+        echo "Is main: ${{ github.ref == 'refs/heads/main' }}"
+        
     - name: Checkout repository
       uses: actions/checkout@v4
       
@@ -80,10 +88,11 @@ jobs:
       uses: nwtgck/actions-netlify@v3.0
       with:
         publish-dir: './dist'
-        production-deploy: ${{ startsWith(github.ref, 'refs/tags/v') }}
+        production-deploy: ${{ startsWith(github.ref, 'refs/tags/v') || github.ref == 'refs/heads/main' }}
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        deploy-message: "Deploy from GitHub Actions"
+        deploy-message: ${{ startsWith(github.ref, 'refs/tags/v') && format('Deploy tag {0}', github.ref_name) || 'Deploy from GitHub Actions' }}
+        alias: ${{ startsWith(github.ref, 'refs/tags/v') && github.ref_name || '' }}
       env:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-      timeout-minutes: 1 
+      timeout-minutes: 2 
