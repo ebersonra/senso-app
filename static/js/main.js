@@ -172,6 +172,8 @@ class SimpleRouter {
         
         // Atualizar ano no footer
         updateFooterYear();
+        // Atualizar versão do site
+        updateVersionInfo();
         
         // Atualizar datas nas páginas legais
         updateLegalDates();
@@ -352,7 +354,6 @@ function initNavMenu() {
     }
 }
 
-// Inicializar quando o DOM estiver carregado
 // Função para atualizar a versão do site
 function updateVersionInfo() {
     const versionElement = document.getElementById('version-display');
@@ -373,4 +374,4 @@ document.addEventListener('DOMContentLoaded', function () {
     initNavMenu();
     initFormButtons();
     initSocialLinks();
-}); 
+});
