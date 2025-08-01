@@ -73,8 +73,8 @@ jobs:
       id: commit_and_tag
       run: |
         # Add package.json and updated JS
-        git add package.json package-lock.json version.js
-        git commit -m "chore(release): new release ${{ steps.get_version.outputs.new_version }}"
+        git add --all
+        git commit -am "chore(release): new release ${{ steps.get_version.outputs.new_version }}"
         
         # Get the commit SHA
         commit_sha=$(git rev-parse HEAD)
