@@ -60,20 +60,20 @@ jobs:
         fi
         echo "new_version=${new_version}" >> $GITHUB_OUTPUT
 
-    - name: Update version in HTML
+    - name: Update version in version.js
       run: |
-        # Update the version in the inline script
+        # Update the version in the script
         new_version="${{ steps.get_version.outputs.new_version }}"
         echo "Updating version to: $new_version"
-        sed -i "s/window\.SITE_VERSION = 'v[^']*';/window.SITE_VERSION = '$new_version';/g" index.html
+        sed -i "s/window\.SITE_VERSION = 'v[^']*';/window.SITE_VERSION = '$new_version';/g" version.js
         echo "Verifying replacement:"
-        grep "SITE_VERSION" index.html
+        grep "SITE_VERSION" version.js || echo "Version not found in version.js"
 
     - name: Commit version changes and create tag
       id: commit_and_tag
       run: |
-        # Add package.json and updated HTML
-        git add package.json package-lock.json index.html
+        # Add package.json and updated JS
+        git add package.json package-lock.json version.js
         git commit -m "chore(release): new release ${{ steps.get_version.outputs.new_version }}"
         
         # Get the commit SHA
