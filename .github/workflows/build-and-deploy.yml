@@ -2,11 +2,9 @@ name: Build and Deploy to Netlify
 
 on:
   push:
-    branches: [ main ]
     tags:
-      - 'v*' # Roda quando uma tag como v1.0.0 é criada
-  pull_request:
-    branches: [ main ]
+      - 'v*' # Deploy only when tags starting with 'v' are pushed
+  # Removed branch and PR triggers as we only want tag-based deploys
 
 jobs:
   build-and-deploy:
@@ -85,13 +83,15 @@ jobs:
         done
         
     - name: Deploy to Netlify
+      # Only deploy for tags starting with v
+      if: startsWith(github.ref, 'refs/tags/v')
       uses: nwtgck/actions-netlify@v3.0
       with:
         publish-dir: './dist'
-        production-deploy: ${{ startsWith(github.ref, 'refs/tags/v') || github.ref == 'refs/heads/main' }}
+        production-deploy: true
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        deploy-message: ${{ startsWith(github.ref, 'refs/tags/v') && format('Deploy tag {0}', github.ref_name) || 'Deploy from GitHub Actions' }}
-        alias: ${{ startsWith(github.ref, 'refs/tags/v') && github.ref_name || '' }}
+        deploy-message: "Deploy tag ${{ github.ref_name }}"
+        alias: ${{ github.ref_name }}
       env:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
