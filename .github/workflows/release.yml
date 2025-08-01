@@ -65,9 +65,9 @@ jobs:
         # Update the version in the script
         new_version="${{ steps.get_version.outputs.new_version }}"
         echo "Updating version to: $new_version"
-        sed -i "s/window\.SITE_VERSION = 'v[^']*';/window.SITE_VERSION = '$new_version';/g" version.js
+        sed -i "s/window\.SITE_VERSION = 'v[^']*';/window.SITE_VERSION = '$new_version';/g" static/js/version.js
         echo "Verifying replacement:"
-        grep "SITE_VERSION" version.js || echo "Version not found in version.js"
+        grep "SITE_VERSION" static/js/version.js || echo "Version not found in version.js"
 
     - name: Commit version changes and create tag
       id: commit_and_tag
