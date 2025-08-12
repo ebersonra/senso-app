@@ -1,1 +1,1 @@
-window.SITE_VERSION = 'v1.3.12';
+window.SITE_VERSION = 'v1.3.13';
