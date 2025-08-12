@@ -1,6 +1,16 @@
 /*
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
-  Content-Security-Policy: default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com; img-src 'self' data: https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-src 'self' https://www.google.com https://www.google.com/maps
+  Content-Security-Policy: default-src 'self'; \
+  base-uri 'self'; \
+  object-src 'none'; \
+  form-action 'self'; \
+  frame-src 'self' https://www.google.com https://www.google.com/maps; \
+  script-src 'self' https://cdn.jsdelivr.net https://www.googletagmanager.com https://www.google-analytics.com; \
+  connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com; \
+  img-src 'self' data: https://www.google-analytics.com; \
+  style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; \
+  font-src 'self' data:;
+
   X-Frame-Options: DENY
   X-XSS-Protection: 1; mode=block
   X-Content-Type-Options: nosniff
