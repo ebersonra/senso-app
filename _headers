@@ -1,6 +1,13 @@
 /*
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
-  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; frame-src 'self' https://www.google.com https://www.google.com/maps https://td.doubleclick.net https://www.googletagmanager.com; script-src 'self' https://cdn.jsdelivr.net https://www.googletagmanager.com https://www.google-analytics.com https://www.googleadservices.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://stats.g.doubleclick.net https://www.googleadservices.com https://www.google.com https://www.google.com.br; img-src 'self' data: https://www.google-analytics.com https://stats.g.doubleclick.net https://www.google.com https://www.google.com.br https://www.googleadservices.com https://googleads.g.doubleclick.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; font-src 'self' data:;
+  Content-Security-Policy:
+  default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self';
+  script-src 'self' https://*.googletagmanager.com https://www.google-analytics.com https://www.googleadservices.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net;
+  connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.g.doubleclick.net https://pagead2.googlesyndication.com https://www.google.com https://www.google.com.br;
+  img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com https://*.g.doubleclick.net https://www.googleadservices.com https://www.google.com https://www.google.com.br;
+  frame-src 'self' https://www.googletagmanager.com https://td.doubleclick.net;
+  style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net;
+  font-src 'self' data:;
   X-Frame-Options: DENY
   X-XSS-Protection: 1; mode=block
   X-Content-Type-Options: nosniff
