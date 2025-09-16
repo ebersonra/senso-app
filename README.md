@@ -2,10 +2,10 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/c8488858-5fe4-4495-ac74-c70dced9df44/deploy-status)](https://app.netlify.com/projects/psicologiasenso/deploys)
 [![Version](https://img.shields.io/github/v/release/ebersonra/senso-app?sort=semver)](https://github.com/ebersonra/senso-app/releases)
-[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/ebersonra/senso-app/release.yml?branch=main)](https://github.com/ebersonra/senso-app/actions)
-[![License](https://img.shields.io/badge/license-Proprietary-red)](#📄-Licença)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/ebersonra/senso-app/build-and-deploy.yml)](https://github.com/ebersonra/senso-app/actions)
+[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
-Website institucional moderno e responsivo para a Clínica Senso - Instituto de Clínica Psicológica. Desenvolvido com HTML5, CSS3 e JavaScript vanilla, oferecendo uma experiência profissional e otimizada para apresentar os serviços de psicoterapia online e presencial.
+Website institucional moderno e responsivo para a Clínica Senso - Instituto de Clínica Psicológica. Desenvolvido com HTML5, CSS3 e JavaScript vanilla, oferecendo uma experiência profissional e otimizada para apresentar os serviços de psicoterapia online e presencial, com integração Google Analytics e Google Ads.
 
 ## 🎯 Sobre o Projeto
 
@@ -16,7 +16,7 @@ A Clínica Senso oferece atendimento psicológico especializado com base em Tera
 - **Design Profissional**: Interface moderna com elementos glassmorphism e tipografia elegante (fonte CreatoDisplay)
 - **Totalmente Responsivo**: Adaptado para desktop, tablet e mobile com breakpoints otimizados
 - **Performance Otimizada**: 
-  - Minificação automática de CSS e JavaScript com hash versionado
+  - Minificação automática de CSS e JavaScript com hash versionado para cache busting
   - Compressão de imagens com formato WebP e fallback
   - Preload de recursos críticos e lazy loading
 - **Acessibilidade**: Navegação por teclado, ARIA labels e estrutura semântica
@@ -24,6 +24,8 @@ A Clínica Senso oferece atendimento psicológico especializado com base em Tera
 - **PWA Ready**: Favicon completo, manifest.json e suporte offline
 - **Versionamento Automático**: Versão dinâmica no footer atualizada via CI/CD
 - **Deploy Tag-Based**: Deploy automatizado apenas para releases (tags v*)
+- **Marketing Digital**: Integração completa com Google Analytics e Google Ads (GTM)
+- **Roteamento SPA**: Sistema de navegação sem reload com URLs limpas
 
 ## 🛠️ Tecnologias Utilizadas
 
@@ -31,7 +33,7 @@ A Clínica Senso oferece atendimento psicológico especializado com base em Tera
 - **HTML5**: Estrutura semântica com ARIA labels para acessibilidade
 - **CSS3**: Estilos modernos com Flexbox, Grid, variáveis CSS e glassmorphism
 - **JavaScript (ES6+)**: 
-  - Router SPA para navegação sem reload
+  - Router SPA para navegação sem reload com URLs limpas
   - Sistema de versionamento dinâmico
   - Detecção de suporte WebP automática
   - Gerenciamento de formulários e navegação
@@ -45,8 +47,14 @@ A Clínica Senso oferece atendimento psicológico especializado com base em Tera
 ### Ferramentas de Build
 - **Node.js/npm**: Gerenciamento de dependências e scripts de build
 - **Terser**: Minificação e otimização de JavaScript
-- **clean-css-cli**: Minificação de CSS
+- **clean-css-cli**: Minificação de CSS com hash versionado
 - **DOMPurify**: Sanitização de conteúdo (segurança)
+
+### Marketing Digital
+- **Google Tag Manager (GTM)**: Gerenciamento centralizado de tags
+- **Google Analytics**: Acompanhamento de visitantes e comportamento
+- **Google Ads**: Conversão e remarketing
+- **Content Security Policy**: Headers de segurança configurados para suporte a tracking
 
 ### Deploy e Hospedagem
 - **Netlify**: Hospedagem com CDN global e compressão automática
@@ -62,8 +70,9 @@ senso-app/
 ├── manifest.json                 # Configuração PWA
 ├── netlify.toml                  # Configuração de deploy
 ├── package.json                  # Dependências e scripts
-├── _headers                      # Headers HTTP da Netlify
-├── _redirects                    # Regras de redirect
+├── _headers                      # Headers HTTP e CSP para Google Ads/Analytics
+├── _redirects                    # Regras de redirect para URLs limpas
+├── requirements.txt              # Dependências Python para scripts
 ├── 
 ├── static/                       # Assets estáticos
 │   ├── css/
@@ -74,6 +83,8 @@ senso-app/
 │   │   ├── config.js            # Configurações da aplicação
 │   │   ├── version.js           # Arquivo de versão (atualizado via CI/CD)
 │   │   ├── webp-detect.js       # Detecção de suporte WebP
+│   │   ├── gtag-init.js         # Inicialização Google Analytics
+│   │   ├── gtm-start.js         # Inicialização Google Tag Manager
 │   │   └── main.min.{hash}.js   # JS minificado com hash (gerado)
 │   └── fonts/                   # Família CreatoDisplay (WOFF/WOFF2)
 │
@@ -88,6 +99,10 @@ senso-app/
 │   ├── content.md               # Conteúdo textual do site
 │   ├── FORM_CONFIG.md           # Documentação de formulários
 │   └── LEGAL_PAGES_README.md    # Páginas legais
+│
+├── .github/workflows/           # GitHub Actions
+│   ├── release.yml              # Workflow de release automático
+│   └── build-and-deploy.yml     # Workflow de build e deploy
 │
 ├── compressed_images/           # Imagens processadas
 ├── *.py                         # Scripts de otimização de imagem
@@ -115,9 +130,11 @@ senso-app/
 
 4. **Scripts disponíveis**:
    ```bash
-   npm run build          # Build completo (CSS + JS)
+   npm run build          # Build completo (CSS + JS) com hash
    npm run minify-css     # Minifica apenas CSS
    npm run minify-js      # Minifica apenas JavaScript  
+   npm run build:css      # Build CSS com compressão Brotli e Gzip
+   npm run build:js       # Build JS com compressão Brotli e Gzip
    npm run lint           # Verificação de código (ESLint)
    npm run format         # Formatação de código (Prettier)
    npm run dev            # Servidor local na porta 8081
@@ -141,15 +158,16 @@ O projeto usa um sistema de release baseado em tags:
 
 ### 🚀 Processo de Build e Deploy
 1. **Cache Dependencies**: NPM cache para builds mais rápidos
-2. **Minificação**: CSS e JS com hash versionado para cache busting
+2. **Minificação**: CSS e JS com hash MD5 versionado para cache busting
 3. **Build Directory**: Cria `/dist` com assets otimizados
 4. **HTML Update**: Substitui referências pelos arquivos com hash
-5. **Netlify Deploy**: Deploy em produção com alias da versão
+5. **Netlify Deploy**: Deploy em produção com alias da versão e compressão automática
 
-### 📋 Configurações
-- **Headers HTTP**: Cache otimizado e headers de segurança
-- **Redirects**: SPAs e redirecionamentos de páginas legais
+### 📋 Configurações de Produção
+- **Headers HTTP**: Cache otimizado, CSP e headers de segurança
+- **Redirects**: SPAs e redirecionamentos de páginas legais sem extensão
 - **Environment**: Produção com assets minificados e hash versionado
+- **Content Security Policy**: Configurado para Google Analytics, GTM e Google Ads
 
 ## 🔧 Desenvolvimento e Manutenção
 
@@ -166,6 +184,8 @@ O projeto usa um sistema de release baseado em tags:
   - `static/js/config.js` - Configurações da aplicação
   - `static/js/version.js` - Versionamento dinâmico
   - `static/js/webp-detect.js` - Detecção de formato de imagem
+  - `static/js/gtag-init.js` - Google Analytics
+  - `static/js/gtm-start.js` - Google Tag Manager
 
 ### 🏷️ Sistema de Releases
 ```bash
@@ -183,10 +203,15 @@ git push --follow-tags
 ### 🖼️ Otimização de Imagens
 Scripts Python disponíveis para processamento:
 ```bash
-python3 compress_images.py      # Compressão geral com WebP
+# Instalar dependências Python
+pip install -r requirements.txt
+
+# Scripts de otimização
+python3 compress_images.py      # Compressão geral com WebP (max 800KB)
 python3 image_splitter.py       # Divisão de imagens grandes
 python3 resize_logo.py          # Redimensionamento de logos
 python3 generate_favicons.py    # Geração de favicons completa
+./run_compression.sh            # Script bash para compressão automática
 ```
 
 ### 📄 Páginas Legais
@@ -222,17 +247,17 @@ Especialista em **Psicologia Existencial Fenomenológica**
 
 ## 📊 Status do Projeto
 
-# Psicologia Senso - Website
-
 - **Status**: ✅ Produção
+- **Versão Atual**: v1.3.9
 - **Deploy**: Tag-based via GitHub Actions + Netlify
 - **Performance**: Otimizado para Web Vitals
 - **Versionamento**: Dinâmico via CI/CD
 - **Architecture**: SPA com Router customizado
+- **Marketing**: Google Analytics + Google Ads integrados
 
 ## 📄 Licença
 
-Este projeto foi desenvolvido para a clínica de psicologia Senso. Todos os direitos reservados.
+Este projeto está licenciado sob a MIT License - veja o arquivo [LICENSE](LICENSE) para detalhes.
 
 ---
 

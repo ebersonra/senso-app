@@ -1332,7 +1332,7 @@ iframe {
     -webkit-backdrop-filter: blur(8px);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
     position: fixed;
-    top: 10vh;
+    top: 5vh;
     left: 0;
     z-index: 1000;
     transition: background 0.3s;
