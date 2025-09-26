@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Senso Analytics</title>
+    <meta name="description" content="Dashboard integrado com Google Ads e Google Analytics para métricas da Clínica Senso.">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/dashboard.css">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js" defer integrity="sha384-TQzPnJYk9E2W7Y4UjLEsVVDITG8YEJIhBKb2qTCHxPczYQEU5DgNBZqRSoKz8p7" crossorigin="anonymous"></script>
+    
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.0/dist/umd/supabase.min.js" defer></script>
+    
+    <!-- WebP Detection -->
+    <script src="static/js/webp-detect.js" defer></script>
+</head>
+<body class="dashboard-body">
+    <!-- Sidebar -->
+    <aside class="dashboard-sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="img/logo/logo-senso-light.webp" alt="Senso" class="sidebar-logo">
+            <h2>Analytics</h2>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="#overview" class="nav-link active" data-section="overview">
+                        <span class="nav-icon">📊</span>
+                        <span class="nav-text">Visão Geral</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#google-ads" class="nav-link" data-section="google-ads">
+                        <span class="nav-icon">🎯</span>
+                        <span class="nav-text">Google Ads</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#analytics" class="nav-link" data-section="analytics">
+                        <span class="nav-icon">📈</span>
+                        <span class="nav-text">Analytics</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#settings" class="nav-link" data-section="settings">
+                        <span class="nav-icon">⚙️</span>
+                        <span class="nav-text">Configurações</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <div class="user-info" id="userInfo">
+                <span class="user-email"></span>
+                <button class="logout-btn" id="logoutBtn">Sair</button>
+            </div>
+        </div>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="dashboard-main">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+                <span class="toggle-icon"></span>
+            </button>
+            
+            <div class="header-controls">
+                <div class="date-filter">
+                    <select id="dateRange" class="date-select">
+                        <option value="7">Últimos 7 dias</option>
+                        <option value="30" selected>Últimos 30 dias</option>
+                        <option value="90">Últimos 90 dias</option>
+                        <option value="custom">Período personalizado</option>
+                    </select>
+                    
+                    <div class="custom-date-range" id="customDateRange" style="display: none;">
+                        <input type="date" id="startDate" class="date-input">
+                        <span>até</span>
+                        <input type="date" id="endDate" class="date-input">
+                        <button class="btn btn-sm" id="applyDateRange">Aplicar</button>
+                    </div>
+                </div>
+                
+                <button class="refresh-btn" id="refreshBtn" aria-label="Atualizar dados">
+                    <span class="refresh-icon">🔄</span>
+                </button>
+            </div>
+        </header>
+        
+        <!-- Content Sections -->
+        <div class="dashboard-content">
+            <!-- Overview Section -->
+            <section class="content-section active" id="overview-section">
+                <div class="section-header">
+                    <h1>Visão Geral</h1>
+                    <p>Principais métricas de performance</p>
+                </div>
+                
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <h3>Usuários Ativos</h3>
+                            <span class="kpi-icon">👥</span>
+                        </div>
+                        <div class="kpi-value" id="activeUsers">-</div>
+                        <div class="kpi-change positive" id="activeUsersChange">-</div>
+                    </div>
+                    
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <h3>Taxa de Conversão</h3>
+                            <span class="kpi-icon">🎯</span>
+                        </div>
+                        <div class="kpi-value" id="conversionRate">-</div>
+                        <div class="kpi-change" id="conversionRateChange">-</div>
+                    </div>
+                    
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <h3>Custo Total (Ads)</h3>
+                            <span class="kpi-icon">💰</span>
+                        </div>
+                        <div class="kpi-value" id="totalCost">-</div>
+                        <div class="kpi-change" id="totalCostChange">-</div>
+                    </div>
+                    
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <h3>CTR Médio</h3>
+                            <span class="kpi-icon">📊</span>
+                        </div>
+                        <div class="kpi-value" id="avgCtr">-</div>
+                        <div class="kpi-change" id="avgCtrChange">-</div>
+                    </div>
+                </div>
+                
+                <div class="charts-grid">
+                    <div class="chart-card">
+                        <h3>Usuários por Dia</h3>
+                        <canvas id="usersChart"></canvas>
+                    </div>
+                    
+                    <div class="chart-card">
+                        <h3>Performance de Campanhas</h3>
+                        <canvas id="campaignsChart"></canvas>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Google Ads Section -->
+            <section class="content-section" id="google-ads-section">
+                <div class="section-header">
+                    <h1>Google Ads</h1>
+                    <p>Métricas de campanhas publicitárias</p>
+                </div>
+                
+                <div class="ads-metrics">
+                    <div class="metric-card">
+                        <h3>Impressões</h3>
+                        <div class="metric-value" id="impressions">-</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <h3>Cliques</h3>
+                        <div class="metric-value" id="clicks">-</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <h3>CPC Médio</h3>
+                        <div class="metric-value" id="avgCpc">-</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <h3>Conversões</h3>
+                        <div class="metric-value" id="conversions">-</div>
+                    </div>
+                </div>
+                
+                <div class="ads-charts">
+                    <div class="chart-card">
+                        <h3>Performance por Dia</h3>
+                        <canvas id="adsPerformanceChart"></canvas>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Analytics Section -->
+            <section class="content-section" id="analytics-section">
+                <div class="section-header">
+                    <h1>Google Analytics</h1>
+                    <p>Comportamento e engajamento dos usuários</p>
+                </div>
+                
+                <div class="analytics-metrics">
+                    <div class="metric-card">
+                        <h3>Sessões</h3>
+                        <div class="metric-value" id="sessions">-</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <h3>Taxa de Rejeição</h3>
+                        <div class="metric-value" id="bounceRate">-</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <h3>Tempo Médio</h3>
+                        <div class="metric-value" id="avgSessionDuration">-</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <h3>Páginas/Sessão</h3>
+                        <div class="metric-value" id="pagesPerSession">-</div>
+                    </div>
+                </div>
+                
+                <div class="analytics-charts">
+                    <div class="chart-card">
+                        <h3>Páginas Mais Acessadas</h3>
+                        <canvas id="topPagesChart"></canvas>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Settings Section -->
+            <section class="content-section" id="settings-section">
+                <div class="section-header">
+                    <h1>Configurações</h1>
+                    <p>Gerenciar conta e preferências</p>
+                </div>
+                
+                <div class="settings-content">
+                    <div class="setting-group">
+                        <h3>Informações da Conta</h3>
+                        <div class="form-group">
+                            <label for="userEmail">Email</label>
+                            <input type="email" id="userEmail" class="form-input" readonly>
+                        </div>
+                    </div>
+                    
+                    <div class="setting-group">
+                        <h3>Preferências</h3>
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="emailNotifications">
+                                <span class="checkbox-custom"></span>
+                                Receber notificações por email
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="setting-group">
+                        <h3>Ações</h3>
+                        <button class="btn btn-secondary" id="changePasswordBtn">Alterar Senha</button>
+                        <button class="btn btn-danger" id="logoutBtnSettings">Sair da Conta</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Carregando dados...</p>
+        </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="static/js/config.js" defer></script>
+    <script src="static/js/supabase-config.js" defer></script>
+    <script src="static/js/auth.js" defer></script>
+    <script src="static/js/google-api.js" defer></script>
+    <script src="static/js/dashboard.js" defer></script>
+</body>
+</html>

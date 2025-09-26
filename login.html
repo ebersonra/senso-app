@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Dashboard Senso</title>
+    <meta name="description" content="Acesse o dashboard da Clínica Senso para visualizar métricas do Google Ads e Google Analytics.">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="static/css/style.css">
+    
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.0/dist/umd/supabase.min.js" defer></script>
+    
+    <!-- WebP Detection -->
+    <script src="static/js/webp-detect.js" defer></script>
+</head>
+<body class="login-page">
+    <main class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <img src="img/logo/logo-senso-dark.webp" alt="Psicologia Senso" class="login-logo">
+                <h1>Dashboard Senso</h1>
+                <p>Acesse suas métricas de performance</p>
+            </div>
+            
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required autocomplete="email">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" name="password" required autocomplete="current-password">
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-login" id="loginBtn">
+                    <span class="btn-text">Entrar</span>
+                    <span class="btn-loading" style="display: none;">
+                        <span class="spinner"></span>
+                        Entrando...
+                    </span>
+                </button>
+                
+                <div class="form-message" id="formMessage" style="display: none;"></div>
+            </form>
+            
+            <div class="login-footer">
+                <p>Não tem uma conta? <a href="#" id="registerLink">Cadastre-se</a></p>
+                <a href="/" class="back-link">← Voltar ao site</a>
+            </div>
+        </div>
+        
+        <!-- Registro Modal (para futuro) -->
+        <div class="register-modal" id="registerModal" style="display: none;">
+            <div class="modal-content">
+                <h2>Cadastro</h2>
+                <p>Entre em contato com a administração para solicitar acesso ao dashboard.</p>
+                <button class="btn btn-secondary" id="closeRegisterModal">Fechar</button>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Scripts -->
+    <script src="static/js/supabase-config.js" defer></script>
+    <script src="static/js/auth.js" defer></script>
+    <script src="static/js/login.js" defer></script>
+</body>
+</html>
