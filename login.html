@@ -14,6 +14,7 @@
     
     <!-- CSS -->
     <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/dashboard.css">
     
     <!-- Supabase -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.0/dist/umd/supabase.min.js" defer></script>
@@ -25,7 +26,10 @@
     <main class="login-container">
         <div class="login-card">
             <div class="login-header">
-                <img src="img/logo/logo-senso-dark.webp" alt="Psicologia Senso" class="login-logo">
+                <picture>
+                    <source srcset="img/logo/logo_senso_nova-140.webp" type="image/webp">
+                    <img src="img/logo/logo_senso_nova-140.png" alt="Psicologia Senso" class="login-logo">
+                </picture>
                 <h1>Dashboard Senso</h1>
                 <p>Acesse suas métricas de performance</p>
             </div>
@@ -33,12 +37,12 @@
             <form class="login-form" id="loginForm">
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required autocomplete="email">
+                    <input type="email" id="email" name="email" required autocomplete="email" placeholder="seu@email.com">
                 </div>
                 
                 <div class="form-group">
                     <label for="password">Senha</label>
-                    <input type="password" id="password" name="password" required autocomplete="current-password">
+                    <input type="password" id="password" name="password" required autocomplete="current-password" placeholder="••••••••">
                 </div>
                 
                 <button type="submit" class="btn btn-primary btn-login" id="loginBtn">
@@ -69,6 +73,7 @@
     </main>
     
     <!-- Scripts -->
+    <script src="static/js/config.js" defer></script>
     <script src="static/js/supabase-config.js" defer></script>
     <script src="static/js/auth.js" defer></script>
     <script src="static/js/login.js" defer></script>

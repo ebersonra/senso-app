@@ -5,19 +5,20 @@ class GoogleAPIManager {
         this.analyticsData = null;
         this.initialized = false;
         
-        // Configurações das APIs (substituir pelas chaves reais)
+        // Configurações das APIs usando variáveis de ambiente
+        // Configure as variáveis via window.ENV ou diretamente no código
         this.config = {
             // Google Analytics 4
             ga4: {
-                measurementId: 'G-XXXXXXXXXX', // Substituir pelo ID real
-                apiKey: 'your-api-key', // Substituir pela chave real
-                propertyId: 'properties/123456789' // Substituir pelo ID da propriedade
+                measurementId: window.ENV?.GA4_MEASUREMENT_ID || 'G-XXXXXXXXXX',
+                apiKey: window.ENV?.GA4_API_KEY || 'your-api-key',
+                propertyId: window.ENV?.GA4_PROPERTY_ID || 'properties/123456789'
             },
             // Google Ads
             googleAds: {
-                clientId: 'your-client-id', // Substituir pelo client ID real
-                developerToken: 'your-developer-token', // Substituir pelo token real
-                customerId: '123-456-7890' // Substituir pelo customer ID real
+                clientId: window.ENV?.GOOGLE_ADS_CLIENT_ID || 'your-client-id',
+                developerToken: window.ENV?.GOOGLE_ADS_DEVELOPER_TOKEN || 'your-developer-token',
+                customerId: window.ENV?.GOOGLE_ADS_CUSTOMER_ID || '123-456-7890'
             }
         };
     }

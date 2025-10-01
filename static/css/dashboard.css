@@ -37,39 +37,44 @@
 
 .login-container {
     width: 100%;
-    max-width: 400px;
+    max-width: 420px;
     padding: 2rem;
 }
 
 .login-card {
     background: var(--dashboard-surface);
     border-radius: 16px;
-    padding: 2.5rem;
+    padding: 3rem 2.5rem;
     box-shadow: var(--shadow-lg);
     border: 1px solid var(--dashboard-border);
 }
 
 .login-header {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
 }
 
 .login-logo {
-    width: 80px;
+    width: 100px;
     height: auto;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .login-header h1 {
     color: var(--dashboard-text);
-    font-size: 1.75rem;
+    font-size: 2rem;
     font-weight: 700;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
 }
 
 .login-header p {
     color: var(--dashboard-text-secondary);
-    font-size: 0.95rem;
+    font-size: 1rem;
+    line-height: 1.5;
 }
 
 .login-form {
@@ -77,56 +82,66 @@
 }
 
 .form-group {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.75rem;
 }
 
 .form-group label {
     display: block;
     color: var(--dashboard-text);
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.625rem;
+    font-size: 0.9375rem;
 }
 
 .form-group input {
     width: 100%;
-    padding: 0.875rem 1rem;
+    padding: 0.875rem 1.125rem;
     background: var(--dashboard-bg);
-    border: 1px solid var(--dashboard-border);
+    border: 1.5px solid var(--dashboard-border);
     border-radius: 8px;
     color: var(--dashboard-text);
-    font-size: 0.95rem;
+    font-size: 1rem;
+    font-family: 'Creato Display', sans-serif;
     transition: border-color 0.2s, box-shadow 0.2s;
+    box-sizing: border-box;
 }
 
 .form-group input:focus {
     outline: none;
     border-color: var(--dashboard-accent);
-    box-shadow: 0 0 0 3px rgba(60, 89, 162, 0.1);
+    box-shadow: 0 0 0 3px rgba(60, 89, 162, 0.15);
 }
 
 .form-group input::placeholder {
     color: var(--dashboard-text-muted);
+    opacity: 0.7;
 }
 
 .btn-login {
     width: 100%;
-    padding: 0.875rem 1rem;
+    padding: 1rem 1.25rem;
     background: var(--dashboard-accent);
     color: var(--dashboard-text);
     border: none;
     border-radius: 8px;
-    font-size: 0.95rem;
+    font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s, transform 0.1s;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: 'Creato Display', sans-serif;
+    margin-top: 0.5rem;
 }
 
 .btn-login:hover:not(:disabled) {
     background: var(--dashboard-accent-hover);
+    transform: translateY(-1px);
+}
+
+.btn-login:active:not(:disabled) {
+    transform: translateY(0);
 }
 
 .btn-login:disabled {
@@ -137,7 +152,7 @@
 .btn-loading {
     display: none;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.625rem;
 }
 
 .spinner {
@@ -177,22 +192,29 @@
 .login-footer {
     text-align: center;
     color: var(--dashboard-text-secondary);
-    font-size: 0.9rem;
+    font-size: 0.9375rem;
+    padding-top: 0.5rem;
+}
+
+.login-footer p {
+    margin-bottom: 1rem;
 }
 
 .login-footer a {
     color: var(--dashboard-accent);
     text-decoration: none;
     transition: color 0.2s;
+    font-weight: 500;
 }
 
 .login-footer a:hover {
     color: var(--dashboard-accent-hover);
+    text-decoration: underline;
 }
 
 .back-link {
-    display: block;
-    margin-top: 1rem;
+    display: inline-block;
+    margin-top: 0.5rem;
 }
 
 /* Register Modal */
