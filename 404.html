@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página não encontrada - Psicologia Senso</title>
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/dashboard.css">
+    
+    <!-- WebP Detection -->
+    <script src="static/js/webp-detect.js" defer></script>
+</head>
+<body class="error-page">
+    <main class="error-container">
+        <div class="error-content">
+            <div class="error-header">
+                <img src="img/logo/logo-senso-dark.webp" alt="Psicologia Senso" class="error-logo">
+                <h1>404</h1>
+                <h2>Página não encontrada</h2>
+                <p>A página que você está procurando não existe ou foi movida.</p>
+            </div>
+            
+            <div class="error-actions">
+                <a href="/" class="btn btn-primary">Voltar ao início</a>
+                <a href="/dashboard" class="btn btn-secondary">Acessar Dashboard</a>
+            </div>
+        </div>
+    </main>
+    
+    <style>
+        .error-page {
+            background: linear-gradient(135deg, var(--dashboard-bg) 0%, var(--dashboard-surface) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Creato Display', sans-serif;
+        }
+        
+        .error-container {
+            width: 100%;
+            max-width: 500px;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .error-content {
+            background: var(--dashboard-surface);
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--dashboard-border);
+        }
+        
+        .error-logo {
+            width: 80px;
+            height: auto;
+            margin-bottom: 2rem;
+        }
+        
+        .error-header h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--dashboard-accent);
+            margin: 0 0 1rem 0;
+        }
+        
+        .error-header h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--dashboard-text);
+            margin: 0 0 1rem 0;
+        }
+        
+        .error-header p {
+            color: var(--dashboard-text-secondary);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .error-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        @media (max-width: 480px) {
+            .error-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</body>
+</html>

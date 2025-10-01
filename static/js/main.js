@@ -5,7 +5,9 @@ class SimpleRouter {
             'politica-privacidade': 'politica-privacidade.html',
             'termos-uso': 'termos-uso.html',
             'codigo-etica': 'codigo-etica.html',
-            'cookies': 'cookies.html'
+            'cookies': 'cookies.html',
+            'login': 'login.html',
+            'dashboard': 'dashboard.html'
         };
         
         this.init();
