@@ -232,8 +232,8 @@ function initFormButtons() {
     
     formButtons.forEach(button => {
         button.addEventListener('click', function(e) {
-            window.open(SITE_CONFIG.APPOINTMENT_FORM_URL, '_blank');
             e.preventDefault();
+            window.open(SITE_CONFIG.APPOINTMENT_FORM_URL, '_blank');
         });
     });
 }
@@ -244,8 +244,8 @@ function initSocialLinks() {
     
     if (instagramLink) {
         instagramLink.addEventListener('click', function(e) {
-            window.open(SITE_CONFIG.SOCIAL_MEDIA.INSTAGRAM, '_blank');
             e.preventDefault();
+            window.open(SITE_CONFIG.SOCIAL_MEDIA.INSTAGRAM, '_blank');
         });
     }
 }
@@ -256,8 +256,8 @@ function initWhatsAppButton() {
     
     if (whatsappLink) {
         whatsappLink.addEventListener('click', function(e) {
-            window.open(SITE_CONFIG.CONTACT.WHATSAPP, '_blank');
             e.preventDefault();
+            window.open(SITE_CONFIG.CONTACT.WHATSAPP, '_blank');
         });
     }
 }
