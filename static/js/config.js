@@ -11,7 +11,8 @@ const SITE_CONFIG = {
     // Informações de contato
     CONTACT: {
         EMAIL: "sensoinstituto@gmail.com",
-        ADDRESS: "MAB Centro Médico Rua da Paz, 195 – Terceiro andar, sala 324, Centro - Curitiba/PR – CEP 80060-160"
+        ADDRESS: "MAB Centro Médico Rua da Paz, 195 – Terceiro andar, sala 324, Centro - Curitiba/PR – CEP 80060-160",
+        WHATSAPP: "https://api.whatsapp.com/send?phone=5541984220992&text=Olá,%20gostaria%20de%20agendar%20uma%20sessão%20de%20psicoterapia."
     },
     
     // Horários de atendimento

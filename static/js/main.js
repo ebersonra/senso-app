@@ -184,6 +184,9 @@ class SimpleRouter {
         
         // Inicializar links de redes sociais
         initSocialLinks();
+        
+        // Inicializar botão do WhatsApp
+        initWhatsAppButton();
     }
     
     show404() {
@@ -229,8 +232,8 @@ function initFormButtons() {
     
     formButtons.forEach(button => {
         button.addEventListener('click', function(e) {
-            window.open(SITE_CONFIG.APPOINTMENT_FORM_URL, '_blank');
             e.preventDefault();
+            window.open(SITE_CONFIG.APPOINTMENT_FORM_URL, '_blank');
         });
     });
 }
@@ -241,8 +244,20 @@ function initSocialLinks() {
     
     if (instagramLink) {
         instagramLink.addEventListener('click', function(e) {
-            window.open(SITE_CONFIG.SOCIAL_MEDIA.INSTAGRAM, '_blank');
             e.preventDefault();
+            window.open(SITE_CONFIG.SOCIAL_MEDIA.INSTAGRAM, '_blank');
+        });
+    }
+}
+
+// Função para processar o botão flutuante do WhatsApp
+function initWhatsAppButton() {
+    const whatsappLink = document.querySelector('[data-whatsapp-link]');
+    
+    if (whatsappLink) {
+        whatsappLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.open(SITE_CONFIG.CONTACT.WHATSAPP, '_blank');
         });
     }
 }
@@ -374,4 +389,5 @@ document.addEventListener('DOMContentLoaded', function () {
     initNavMenu();
     initFormButtons();
     initSocialLinks();
+    initWhatsAppButton();
 });
