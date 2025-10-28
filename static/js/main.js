@@ -233,7 +233,23 @@ function initFormButtons() {
     formButtons.forEach(button => {
         button.addEventListener('click', function(e) {
             e.preventDefault();
-            window.open(SITE_CONFIG.APPOINTMENT_FORM_URL, '_blank');
+            
+            // Enviar evento de conversão para Google Ads
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-17413746282/CTAButtonClick',
+                    'event_callback': function() {
+                        window.open(SITE_CONFIG.CONTACT.WHATSAPP, '_blank');
+                    }
+                });
+                
+                // Fallback: abrir WhatsApp após 1 segundo
+                setTimeout(function() {
+                    window.open(SITE_CONFIG.CONTACT.WHATSAPP, '_blank');
+                }, 1000);
+            } else {
+                window.open(SITE_CONFIG.CONTACT.WHATSAPP, '_blank');
+            }
         });
     });
 }
@@ -245,7 +261,24 @@ function initSocialLinks() {
     if (instagramLink) {
         instagramLink.addEventListener('click', function(e) {
             e.preventDefault();
-            window.open(SITE_CONFIG.SOCIAL_MEDIA.INSTAGRAM, '_blank');
+            
+            // Enviar evento para Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'social_click', {
+                    'event_category': 'Social Media',
+                    'event_label': 'Instagram',
+                    'event_callback': function() {
+                        window.open(SITE_CONFIG.SOCIAL_MEDIA.INSTAGRAM, '_blank');
+                    }
+                });
+                
+                // Fallback
+                setTimeout(function() {
+                    window.open(SITE_CONFIG.SOCIAL_MEDIA.INSTAGRAM, '_blank');
+                }, 500);
+            } else {
+                window.open(SITE_CONFIG.SOCIAL_MEDIA.INSTAGRAM, '_blank');
+            }
         });
     }
 }
@@ -257,8 +290,59 @@ function initWhatsAppButton() {
     if (whatsappLink) {
         whatsappLink.addEventListener('click', function(e) {
             e.preventDefault();
-            window.open(SITE_CONFIG.CONTACT.WHATSAPP, '_blank');
+            
+            // Ocultar o badge ao clicar
+            const badge = document.getElementById('whatsappBadge');
+            if (badge) {
+                badge.classList.add('hidden');
+                // Salvar no localStorage que o badge foi clicado
+                localStorage.setItem('whatsappBadgeClicked', 'true');
+            }
+            
+            // Enviar evento de conversão para Google Ads
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-17413746282/WhatsAppClick',
+                    'event_callback': function() {
+                        // Abrir WhatsApp após enviar o evento
+                        window.open(SITE_CONFIG.CONTACT.WHATSAPP, '_blank');
+                    }
+                });
+                
+                // Fallback: abrir WhatsApp após 1 segundo mesmo se o evento não retornar
+                setTimeout(function() {
+                    window.open(SITE_CONFIG.CONTACT.WHATSAPP, '_blank');
+                }, 1000);
+            } else {
+                // Se gtag não estiver disponível, abrir WhatsApp normalmente
+                window.open(SITE_CONFIG.CONTACT.WHATSAPP, '_blank');
+            }
         });
+    }
+    
+    // Gerenciar a visibilidade do badge
+    const badge = document.getElementById('whatsappBadge');
+    if (badge) {
+        const wasClicked = localStorage.getItem('whatsappBadgeClicked');
+        
+        if (wasClicked === 'true') {
+            // Se já clicou, ocultar o badge inicialmente
+            badge.classList.add('hidden');
+            badge.style.display = 'none';
+            
+            // Reaparecer após 5 minutos (300000ms) para lembrar o usuário
+            setTimeout(() => {
+                badge.style.display = 'flex';
+                badge.classList.remove('hidden');
+                // Limpar o localStorage para mostrar novamente
+                localStorage.removeItem('whatsappBadgeClicked');
+            }, 300000);
+        } else {
+            // Mostrar o badge após 2 segundos
+            setTimeout(() => {
+                badge.style.display = 'flex';
+            }, 2000);
+        }
     }
 }
 
