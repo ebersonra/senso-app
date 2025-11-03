@@ -12,24 +12,29 @@
             return false;
         };
         
-        // Method 2: Use feature detection with createImageBitmap if available (modern browsers including iOS 15+)
-        if (window.createImageBitmap) {
-            var webpData = 'data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuUAAA=';
-            fetch(webpData)
-                .then(function(response) { return response.blob(); })
-                .then(function(blob) { return createImageBitmap(blob); })
-                .then(function() {
+        var canvasResult = canvasTest();
+        
+        // Method 2: Use feature detection with Image for iOS compatibility
+        // Only run if canvas test fails (to catch false negatives on some iOS versions)
+        if (!canvasResult && window.Image) {
+            var img = new Image();
+            img.onload = function() {
+                // Image loaded successfully, WebP is supported
+                if (img.width > 0 && img.height > 0) {
                     document.documentElement.classList.remove('no-webp');
                     document.documentElement.classList.add('webp');
-                })
-                .catch(function() {
-                    document.documentElement.classList.remove('webp');
-                    document.documentElement.classList.add('no-webp');
-                });
+                }
+            };
+            img.onerror = function() {
+                // Image failed to load, WebP is not supported
+                // no-webp class already set, nothing to do
+            };
+            // Small 1x1 WebP image
+            img.src = 'data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuUAAA=';
         }
         
         // Return canvas test result for immediate synchronous detection
-        return canvasTest();
+        return canvasResult;
     }
     
     // Apply class immediately for synchronous detection
