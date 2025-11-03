@@ -64,6 +64,13 @@ body {
     position: relative;
 }
 
+/* iOS fix: background-attachment: fixed doesn't work well on iOS */
+@supports (-webkit-touch-callout: none) {
+    body {
+        background-attachment: scroll;
+    }
+}
+
 .section {
     min-height: 100vh;
     width: 100%;
