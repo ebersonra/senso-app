@@ -14,16 +14,14 @@
         
         var canvasResult = canvasTest();
         
-        // Method 2: Use feature detection with Image for iOS compatibility
+        // Method 2: Use Image-based detection for iOS compatibility
         // Only run if canvas test fails (to catch false negatives on some iOS versions)
-        if (!canvasResult && window.Image) {
+        if (!canvasResult) {
             var img = new Image();
             img.onload = function() {
                 // Image loaded successfully, WebP is supported
-                if (img.width > 0 && img.height > 0) {
-                    document.documentElement.classList.remove('no-webp');
-                    document.documentElement.classList.add('webp');
-                }
+                document.documentElement.classList.remove('no-webp');
+                document.documentElement.classList.add('webp');
             };
             img.onerror = function() {
                 // Image failed to load, WebP is not supported
