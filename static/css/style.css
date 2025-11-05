@@ -57,7 +57,7 @@ body {
     overflow-x: hidden;
     max-width: 100vw;
     background-size: cover;
-    background-position: center;
+    background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     min-height: 100vh;
@@ -78,9 +78,6 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
-    background-size: cover;
-    background-position: center top;
-    background-repeat: no-repeat;
     padding: 2rem;
 }
 
