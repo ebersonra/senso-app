@@ -225,6 +225,113 @@ python3 generate_favicons.py    # Geração de favicons completa
 - **Deploy Status**: Badge do Netlify no topo do README
 - **Version Display**: Versão atual visível no footer do site
 
+## 📊 Dashboard Analytics
+
+O projeto inclui um dashboard profissional integrado com Google Ads e Google Analytics 4 para acompanhamento de métricas de performance.
+
+### Funcionalidades do Dashboard
+
+- **🔐 Autenticação Segura**: Sistema de login via Supabase com proteção de rotas
+- **📈 Visão Geral**: KPIs principais com indicadores de mudança percentual
+- **🎯 Google Ads**: Métricas de campanhas (impressões, cliques, CPC, conversões)
+- **📊 Analytics**: Dados de comportamento (sessões, taxa de rejeição, páginas mais acessadas)
+- **⚙️ Configurações**: Gerenciamento de conta e preferências
+- **🌙 Dark Mode**: Design moderno com tema escuro profissional
+- **📱 Responsivo**: Layout otimizado para desktop, tablet e mobile
+
+### Configuração do Dashboard
+
+#### 1. Variáveis de Ambiente
+
+**Opção A: Usando arquivo JavaScript (Recomendado para desenvolvimento)**
+
+Crie um arquivo `static/js/env.js` copiando o exemplo:
+
+```bash
+cp static/js/env.example.js static/js/env.js
+```
+
+Edite `static/js/env.js` com suas credenciais:
+
+```javascript
+window.ENV = {
+    SUPABASE_URL: 'https://seu-projeto.supabase.co',
+    SUPABASE_ANON_KEY: 'sua-chave-anonima',
+    GA4_MEASUREMENT_ID: 'G-XXXXXXXXXX',
+    GA4_API_KEY: 'sua-api-key',
+    GA4_PROPERTY_ID: 'properties/123456789',
+    GOOGLE_ADS_CLIENT_ID: 'seu-client-id',
+    GOOGLE_ADS_DEVELOPER_TOKEN: 'seu-developer-token',
+    GOOGLE_ADS_CUSTOMER_ID: '123-456-7890'
+};
+```
+
+Depois, adicione no HTML antes dos outros scripts:
+
+```html
+<script src="static/js/env.js"></script>
+```
+
+**Opção B: Usando variáveis de ambiente do servidor**
+
+Configure as variáveis no seu servidor/hosting e injete via `window.ENV`.
+
+**⚠️ Importante**: 
+- Nunca commite `env.js` ou `.env` com credenciais reais
+- Use `.env.example` e `env.example.js` como referência
+- Em produção, use variáveis de ambiente do servidor
+
+#### 2. Configuração do Supabase
+
+1. Acesse [supabase.com](https://supabase.com) e crie um projeto
+2. Vá em **Settings > API**
+3. Copie a **URL** e a **anon key**
+4. Adicione no arquivo `.env`
+5. Crie usuários em **Authentication > Users**
+
+#### 3. Configuração Google Analytics 4
+
+1. Acesse [Google Cloud Console](https://console.cloud.google.com)
+2. Crie ou selecione um projeto
+3. Ative a **Google Analytics Reporting API v4**
+4. Crie uma chave de API
+5. No Google Analytics, obtenha o **Property ID**
+
+#### 4. Configuração Google Ads
+
+1. Acesse [Google Ads API Center](https://developers.google.com/google-ads/api)
+2. Solicite um **Developer Token**
+3. Configure **OAuth 2.0** no Google Cloud Console
+4. Obtenha o **Customer ID** no Google Ads
+
+### Acessando o Dashboard
+
+- **Login**: `/login`
+- **Dashboard**: `/dashboard` (requer autenticação)
+- **Demo**: `/dashboard-demo.html` (sem autenticação, dados simulados)
+
+### Arquivos do Dashboard
+
+- `login.html` - Página de autenticação
+- `dashboard.html` - Interface principal do dashboard
+- `dashboard-demo.html` - Versão demo para testes
+- `404.html` - Página de erro personalizada
+- `static/css/dashboard.css` - Estilos do dashboard (16KB)
+- `static/js/auth.js` - Gerenciamento de autenticação
+- `static/js/dashboard.js` - Lógica e gráficos
+- `static/js/google-api.js` - Integração com APIs
+- `static/js/supabase-config.js` - Configuração Supabase
+- `static/js/login.js` - Lógica do login
+
+### Segurança
+
+- ✅ Autenticação obrigatória para acessar o dashboard
+- ✅ Sessões seguras via Supabase
+- ✅ Variáveis sensíveis em `.env` (não versionado)
+- ✅ Proteção contra XSS com DOMPurify
+- ✅ Headers de segurança configurados
+- ✅ CodeQL - 0 vulnerabilidades detectadas
+
 ## 👥 Equipe de Psicólogos
 
 ### Heloisa do Vale - CRP: 08/40879
